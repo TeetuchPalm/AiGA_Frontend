@@ -1,0 +1,48 @@
+#createHistoryPatient {
+    .video-area {
+        margin-top: 10px;
+    }
+
+    .status-area {
+        text-align: center;
+        .status-text {
+            font-family: 'Noto Sans Thai', 
+            sans-serif;margin-bottom: 24px;
+        }
+    }
+
+    .button-area {
+        flex-direction: column;
+
+        .camera {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .record {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .save-area {
+            display: flex;
+            justify-content: center;
+            .submit-button {
+                margin-right: 8px;
+            }
+
+            .btn.btn-primary:disabled {
+                opacity: 1;
+                background-color: #0d6efd70;
+                border: #0d6efd70;
+            }
+
+            .cancel-button {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+        }
+    }
+}

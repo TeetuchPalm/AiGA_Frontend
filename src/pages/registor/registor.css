@@ -1,0 +1,63 @@
+#register {
+    font-family: 'Noto Sans Thai', sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1508615070457-7baeba4003ab?auto=format&amp;fit=crop&amp;q=80&amp;w=1770&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    .container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        .role-select {
+            border-color: var(--bs-border-color);
+        }
+        .email-label {
+            display: flex;
+            justify-content: space-between;
+            .req-email {
+                display: flex;
+                .req-email-text {
+                    font-size: 10px;
+                    color: red;
+                    align-self: flex-end;
+                }
+            }
+        }
+        .password-label {
+            display: flex;
+            justify-content: space-between;
+            .req-password {
+                display: flex;
+                .req-password-text {
+                    font-size: 10px;
+                    color: red;
+                    align-self: flex-end;
+                }
+            }
+        }
+        .rePassword-label {
+            display: flex;
+            justify-content: space-between;
+            .req-rePassword {
+                display: flex;
+                .req-rePassword-text {
+                    font-size: 10px;
+                    color: red;
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+    .btn.btn-primary:disabled{
+        opacity: 1;
+        background-color: #0d6efd70;
+        border: #0d6efd70;
+    }
+    .cancel-button {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}

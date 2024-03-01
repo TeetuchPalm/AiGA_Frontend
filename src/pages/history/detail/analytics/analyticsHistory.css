@@ -1,0 +1,79 @@
+#analytiesHistory {
+    .history-graph {
+        font-family: 'Noto Sans Thai', sans-serif;
+
+        .button-area {
+            margin-bottom: 24px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            .button-page {
+                margin-right: 10px;
+            }
+        }
+
+        .graph-box {
+            .graph {
+                height: auto;
+                width: auto;
+                margin-top: 16px;
+
+                #canvas-container {
+                    height: auto;
+                    width: auto;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    .table-gait {
+        font-family: 'Noto Sans Thai', sans-serif;
+
+        .card-body {
+
+            padding-top: 16px;
+
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            .table-box {
+                width: auto;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                table {
+                    width: 718px;
+                    height: 300px;
+                }
+
+                .table-row.active {
+                    background-color: rgba(255, 99, 132, 0.5);
+                }
+            }
+
+            .score6-table {
+                display: flex;
+                justify-content: center;
+                table {
+                    max-width: 718px;
+                    height: auto;
+                }
+            }
+            .header-text {
+                margin-top: 12px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                .show-modal-button {
+                    height: 32px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

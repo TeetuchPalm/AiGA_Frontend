@@ -1,0 +1,37 @@
+#paginate {
+    width: max-content;
+    .page-button {
+        margin: 2px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 8px;
+        padding-left: 8px;
+        margin-right: 8px;
+        background: rgb(242, 242, 242);
+        border: solid 1px #969696;
+    
+        .symbol {
+            padding-right: 0px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+    
+    .page-button-active {
+        margin: 2px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 8px;
+        padding-left: 8px;
+        margin-right: 8px;
+        color: rgb(0, 0, 255);
+
+        .symbol {
+            padding-right: 0px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+

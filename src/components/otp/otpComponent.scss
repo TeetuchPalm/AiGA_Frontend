@@ -1,0 +1,40 @@
+#otpComponent {
+  background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=1772&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot);
+  background-size: cover;
+  .otp-image {
+    width: 300px;
+  }
+  .otp-content {
+    margin-left: -60px;
+    margin-right: -60px;
+    .card {
+      background-color: rgba(255, 255, 255, 0.5);
+      .otp-card {
+        font-family: "Noto Sans Thai", sans-serif;
+        .otp-card-header {
+          text-align: center;
+          margin-bottom: 24px;
+          margin-top: 16px;
+        }
+        .otp-card-title {
+          padding-bottom: 0px;
+          margin-bottom: 16px;
+        }
+        .otp-card-input-label {
+          margin-bottom: 0px;
+        }
+        .otp-card-submit-button {
+          margin-bottom: 8px;
+        }
+        .otp-card-resend {
+          margin-bottom: 0px;
+          margin-right: 0px;
+          cursor: pointer;
+        }
+        .otp-card-resend:hover {
+          color: #0d6efd;
+        }
+      }
+    }
+  }
+}

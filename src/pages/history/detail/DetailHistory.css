@@ -1,0 +1,35 @@
+#detailHistory {
+    .history-detail {
+        font-family: 'Noto Sans Thai', sans-serif;
+
+        .button-area {
+            margin-bottom: 24px;
+            margin-top: 10px;
+            display: flex;
+            .button-page {
+                margin-right: 10px;
+            }
+        }
+
+        .detail-box {
+            .history-name {
+                margin-top: 16px;
+            }
+        }
+    }
+    .patient-detail {
+        font-family: 'Noto Sans Thai', sans-serif;
+        .patient-detail-box {
+            .patient-name {
+                margin-top: 16px;
+            }
+        }
+    }
+    .video-screen {
+        font-family: 'Noto Sans Thai', sans-serif;
+        .video-screen-box {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

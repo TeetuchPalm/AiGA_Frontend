@@ -1,0 +1,24 @@
+#patientDetail {
+    .patient-detail {
+        font-family: 'Noto Sans Thai', sans-serif;
+        .patient-header {
+            display: flex;
+            justify-content: space-between;
+            .patient-label {
+                h3 {
+                    margin-top: -2px;
+                }
+            }
+            .button {
+                display: flex;
+                height: fit-content;
+            }
+        }
+        .patient-part1 {
+            padding-top: 16px;
+            p {
+                color: var(--bs-body-color);
+            }
+        }
+    }
+}

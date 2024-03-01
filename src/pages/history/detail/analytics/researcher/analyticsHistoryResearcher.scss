@@ -1,0 +1,29 @@
+#analytiesHistory {
+    .history-graph {
+        font-family: 'Noto Sans Thai', sans-serif;
+
+        .button-area {
+            margin-bottom: 24px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            .button-page {
+                margin-right: 10px;
+            }
+        }
+
+        .graph-box {
+            .graph {
+                height: auto;
+                width: auto;
+                margin-top: 16px;
+
+                #canvas-container {
+                    height: auto;
+                    width: auto;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
