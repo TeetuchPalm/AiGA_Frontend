@@ -71,7 +71,7 @@ export default function OTPComponent({ username }: IProps): ReactElement {
                     <div className="row mb-5">
                         <div className="col">
                             <div className="otp-image">
-                                <img className="d-xxl-flex justify-content-xxl-center" src="src/assets/img/AiGAlogowhite.svg" width="135" height="55.8" />
+                                <img className="d-xxl-flex justify-content-xxl-center" src="./src/assets/img/AiGAlogowhite.svg" width="135" height="55.8" />
                             </div>
                         </div>
                     </div>

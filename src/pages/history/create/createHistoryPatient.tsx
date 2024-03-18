@@ -224,7 +224,7 @@ function CreateHistoryPatient(): ReactElement {
                     <div className="row">
                         <div className="col d-flex justify-content-center video-area">
                             {(recordWebcam.status === 'CLOSED' || recordWebcam.status === 'INIT') && <div className="temp-video-image">
-                                <img width={480} height={360} src="/src/assets/img/AiGalogoblack.svg" />
+                                <img width={480} height={360} src="./src/assets/img/AiGalogoblack.svg" />
                             </div>}
                             <video
                                 ref={recordWebcam.previewRef}
@@ -358,7 +358,7 @@ function CreateHistoryPatient(): ReactElement {
                     <div className="row">
                         <div className="col d-flex justify-content-center video-area">
                             {!videoSource && <div className="temp-video-image">
-                                <img width={480} height={360} src="/src/assets/img/AiGalogoblack.svg" />
+                                <img width={480} height={360} src="./src/assets/img/AiGalogoblack.svg" />
                             </div>}
                             {videoSource &&
                                 <video

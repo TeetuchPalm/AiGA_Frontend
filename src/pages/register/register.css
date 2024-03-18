@@ -1,6 +1,6 @@
 #registor {
     font-family: 'Noto Sans Thai', sans-serif;
-    background-image: url('src/assets/img/BG-2.svg');
+    background-image: url('./src/assets/img/BG-2.svg');
     background-attachment: fixed;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
