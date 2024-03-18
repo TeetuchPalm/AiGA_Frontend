@@ -15,18 +15,18 @@ interface IProps {
     filterParams: IHistoryParams
     showFilter: (showFilter: boolean) => void
     sendParams: (
-        params: IHistoryParams, 
-        selectedPatient: IReactSelect | null, 
-        selectedClinician: IReactSelect | null, 
+        params: IHistoryParams,
+        selectedPatient: IReactSelect | null,
+        selectedClinician: IReactSelect | null,
         selectedGroup: IReactSelect | null
-        ) => void
+    ) => void
     isShowFilter: boolean
     selectedPatientProp: IReactSelect | null
     selectedClinicianProp: IReactSelect | null
     selectedGroupProp: IReactSelect | null
 }
 
-function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter, selectedPatientProp, selectedClinicianProp, selectedGroupProp}: IProps): ReactElement {
+function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter, selectedPatientProp, selectedClinicianProp, selectedGroupProp }: IProps): ReactElement {
     const [historyParams, setHistoryParams] = useState<IHistoryParams>(filterParams)
     const [groupOptions, setGroupOptions] = useState<IReactSelect[]>([])
     const [groupQuery, setGroupQuery] = useState<IGroupParams>({
@@ -49,9 +49,7 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
     })
 
     useEffect(() => {
-        fetchGroup()
-        fetchClinician()
-        getAllPatient()
+        fetchData()
     }, [])
 
     useEffect(() => {
@@ -69,61 +67,40 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
     }, [clinicianOptions])
 
     useEffect(() => {
-        if(isSearch) {
+        if (isSearch) {
             getAllPatient()
             setIsSearch(false)
         }
     }, [patientOptions])
 
+    const fetchData = async() => {
+        await fetchGroup()
+        await fetchClinician()
+        await getAllPatient()
+    }
+
     const getAllPatient = async () => {
-        try {
-            const response: IPageResponse<IPatientResponse[]> = await getPatients(patientQuery)
-            setpatientOptions(patientOptions.concat(response.entities.map(patient => (
-                {
-                    label: patient.firstname + " " +  patient.lastname, value: patient.id.toString()
-                }))))
-        } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
-        }
+        const response: IPageResponse<IPatientResponse[]> = await getPatients(patientQuery)
+        setpatientOptions(patientOptions.concat(response.entities.map(patient => (
+            {
+                label: patient.firstname + " " + patient.lastname, value: patient.id.toString()
+            }))))
     }
 
     const fetchGroup = async () => {
-        try {
-            const response: IPageResponse<IGroupResponse[]> = await getAllPageGroup(groupQuery)
-            setGroupOptions(groupOptions.concat(response.entities.map(tag => (
-                {
-                    label: tag.name, value: tag.id.toString()
-                }))))
-        } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
-        }
+        const response: IPageResponse<IGroupResponse[]> = await getAllPageGroup(groupQuery)
+        setGroupOptions(groupOptions.concat(response.entities.map(tag => (
+            {
+                label: tag.name, value: tag.id.toString()
+            }))))
     }
 
     const fetchClinician = async () => {
-        try {
-            const response: IPageResponse<IClinicianResponse[]> = await getClinicians(clinicianQuery)
-            setClinicianOptions(clinicianOptions.concat(response.entities.map(clinician => (
-                {
-                    label: clinician.firstname + " " + clinician.lastname, value: clinician.id.toString()
-                }))))
-        } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
-        }
+        const response: IPageResponse<IClinicianResponse[]> = await getClinicians(clinicianQuery)
+        setClinicianOptions(clinicianOptions.concat(response.entities.map(clinician => (
+            {
+                label: clinician.firstname + " " + clinician.lastname, value: clinician.id.toString()
+            }))))
     }
 
     const formatOptionLabel = (option: IReactSelect): React.JSX.Element => {
@@ -200,7 +177,7 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         </div>
                         <div id="closeHeaderBox">
                             <div className="close-filter" onClick={() => closeFilter()}>
-                            <div>X</div>
+                                <div>X</div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +189,7 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         {showDetailFilter('Groups: ', selectedGroup?.label || historyParams.groups?.toString() || '')}
                     </div>
                     <div className="filter-box">
-                    <label className="form-label">
+                        <label className="form-label">
                             <strong>Select
                                 Patient&nbsp;
                             </strong>

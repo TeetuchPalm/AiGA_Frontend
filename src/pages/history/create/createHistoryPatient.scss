@@ -1,48 +1,83 @@
 #createHistoryPatient {
-    .video-area {
-        margin-top: 10px;
+  .description-box {
+    .description-header {
+      float: left;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      p {
+        font-size: 12px;
+        margin-bottom: 5px;
+        align-self: flex-end;
+      }
     }
 
-    .status-area {
-        text-align: center;
-        .status-text {
-            font-family: 'Noto Sans Thai', 
-            sans-serif;margin-bottom: 24px;
-        }
+    .input-description {
+      resize: none;
+      height: 100px;
+    }
+  }
+
+  .card-body {
+    .form-label {
+      span {
+        color: red;
+      }
+    }
+  }
+
+  .upload-toggle {
+    display: flex;
+    flex-direction: column;
+    .button-is-upload {
+      margin-right: 10px;
+    }
+  }
+
+  .video-area {
+    margin-top: 10px;
+  }
+
+  .status-area {
+    text-align: center;
+    .status-text {
+      font-family: "Noto Sans Thai", sans-serif;
+      margin-bottom: 24px;
+    }
+  }
+
+  .button-area {
+    flex-direction: column;
+
+    .camera {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
     }
 
-    .button-area {
-        flex-direction: column;
-
-        .camera {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .record {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .save-area {
-            display: flex;
-            justify-content: center;
-            .submit-button {
-                margin-right: 8px;
-            }
-
-            .btn.btn-primary:disabled {
-                opacity: 1;
-                background-color: #0d6efd70;
-                border: #0d6efd70;
-            }
-
-            .cancel-button {
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-        }
+    .record {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
     }
+
+    .save-area {
+      display: flex;
+      justify-content: center;
+      .submit-button {
+        margin-right: 8px;
+      }
+
+      .btn.btn-primary:disabled {
+        opacity: 1;
+        background-color: #0d6efd70;
+        border: #0d6efd70;
+      }
+
+      .cancel-button {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+  }
 }

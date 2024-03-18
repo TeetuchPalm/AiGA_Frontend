@@ -10,7 +10,7 @@ const NavBar = (): ReactElement => {
     const [showNavbar, setShowNavbar] = useState(false)
     const { pathname } = useLocation()
 
-    const withouNavRoutes = ["/login", "/register"];
+    const withouNavRoutes = ["/login", "/register","/forget/password","/reset/password"];
 
     const handleShowNavbar = () => {
         setShowNavbar(!showNavbar)
@@ -21,8 +21,8 @@ const NavBar = (): ReactElement => {
         if(refToken) {
             await logoutRef(refToken)
         }
-        localStorage.clear()
         navigate('/login')
+        localStorage.clear()
     }
 
     const adminTabShow = (): boolean => {

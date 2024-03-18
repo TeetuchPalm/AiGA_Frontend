@@ -125,15 +125,15 @@
           width: 107px;
           height: 40px;
           border-radius: 4px;
-          border: solid 1px #480468;
-          color: #480468;
+          border: solid 1px #333333;
+          color: #333333;
           background-color: #ffffff;
           outline: none;
           &:hover {
-            border: solid 1px #480468;
+            border: solid 1px #333333;
             color: #ffffff;
             border-radius: 4px;
-            background-color: #480468;
+            background-color: #333333;
           }
         }
       }

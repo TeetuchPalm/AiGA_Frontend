@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect} from 'react'
 import { Navigate, Route, Routes, useLocation, redirect} from 'react-router-dom'
 import Login from './pages/login/login'
-import Register from './pages/registor/register'
+import Register from './pages/register/register'
 import CreateHistory from './pages/history/create/CreateHistory'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -18,6 +18,8 @@ import PatientDetail from './pages/patient/detail/PatientDetail'
 import AdminPage from './pages/admin/AdminPage'
 import AnalyticsHistoryResearcher from './pages/history/detail/analytics/researcher/analyticsHistoryResearcher'
 import CreateHistoryPatient from './pages/history/create/createHistoryPatient'
+import RequestResetPassword from './pages/resetPassword/requestReset/requestReset'
+import ResetPassword from './pages/resetPassword/reset/resetPassword'
 function RequireAuth({ children }: { children: ReactElement}): ReactElement {
     const { pathname } = useLocation()
     const withouNavRoutes = ["/login", "/register"];
@@ -69,6 +71,8 @@ function Router(): ReactElement {
             <Route path='/patient/:id' element={<RequireAuth><PatientDetail/></RequireAuth>}/>
             <Route path='/history/:id/analytics/clinician' element={<RequireAuth><AnalyticsHistory/></RequireAuth>}/>
             <Route path='/history/:id/analytics/researcher' element={<RequireAuth><AnalyticsHistoryResearcher/></RequireAuth>}/>
+            <Route path='/forget/password' element={<RequestResetPassword/>}/>
+            <Route path='/reset/password/:token' element={<ResetPassword/>}/>
             <Route path="*" element={<Navigate to='/patient' replace/>}/>
         </Routes>
     )

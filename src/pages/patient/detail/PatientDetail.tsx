@@ -26,14 +26,7 @@ function PatientDetail(): ReactElement {
             setPatient(response)
             setIsLoading(false)
         } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            }).then(() => {
-                navigate('/patient')
-            })
+            navigate('/patient')
             setIsLoading(false)
         }
 

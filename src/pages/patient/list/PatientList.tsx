@@ -16,6 +16,7 @@ import { HandleError } from "../../../interfaces/error/handleError";
 import LoadingModal from "../../../components/loading/loading";
 import PatientListFilter from "../../../components/filter/patient-list/PatientListFilter";
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface";
+import CreateTagModal from "../../../components/modal/tag/createTag";
 
 function PatientList(): ReactElement {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,7 +33,19 @@ function PatientList(): ReactElement {
     useState<IPageResponse<IPatientResponse[]>>()
   const [isShowFilter, setIsShowFilter] = useState<boolean>(false)
   const [selectedTag, setSelectedTag] = useState<IReactSelect | null>(null)
+  const [isShowModal, setIsShowModal] = useState<boolean>(false)
+  const [sortBy, setSortBy] = useState<string>("")
+  const [sortType, setSortType] = useState<boolean>(false)
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(sortType) {
+      setPatientParams({ ...patientParams, sortBy: sortBy, sortType: 'asc' })
+    } else {
+      setPatientParams({ ...patientParams, sortBy: sortBy, sortType: 'desc' })
+    }
+  }, [sortBy, sortType]);
 
   useEffect(() => {
     setSearchParamsToPatientParams();
@@ -57,13 +70,7 @@ function PatientList(): ReactElement {
         setPatientPaginate(response);
         setIsLoading(false)
       } catch (e) {
-        const error: HandleError = e as HandleError
         setIsLoading(false)
-        swal.fire({
-          icon: 'error',
-          title: 'Failed Error code: ' + error.response.data.errorCode,
-          text: error.response.data.errorMessage
-        })
       }
     }
   };
@@ -75,7 +82,7 @@ function PatientList(): ReactElement {
       for (const [key, value] of searchParams?.entries()) {
         newParams[key as keyof IPatientParams] = value as any
       }
-      params = { ...newParams, pageNumber: 1 }
+      params = { ...newParams }
     }
     setPatientParams(params);
   };
@@ -117,12 +124,6 @@ function PatientList(): ReactElement {
           })
         } catch (e) {
           setIsLoading(false)
-          const error: HandleError = e as HandleError
-          swal.fire({
-            icon: 'error',
-            title: 'Failed Error code: ' + error.response.data.errorCode,
-            text: error.response.data.errorMessage
-          })
         }
       }
     })
@@ -229,9 +230,19 @@ function PatientList(): ReactElement {
     return <label id="showDetailFilter">{result}</label>
   }
 
+  const sortConfig = (sort: string) => {
+    if(sort === sortBy) {
+      setSortType(!sortType)
+    } else {
+      setSortType(false)
+    }
+    setSortBy(sort)
+  }
+
   return (
     <>
       <LoadingModal showLoadingModal={isLoading} />
+      <CreateTagModal isShowModal={isShowModal} showModal={value => setIsShowModal(value)} />
       {isShowFilter &&
         <div id="patientListFilter">
           <PatientListFilter
@@ -298,38 +309,65 @@ function PatientList(): ReactElement {
                   {showDetailFilter()}
                 </div>
                 <div className="create-patient">
+                  <button className="btn btn-light btn-sm create-tag-button" type="button" onClick={() => setIsShowModal(true)}>Create Patient Tag</button>
                   <button className="btn btn-light btn-sm create-button" type="button" onClick={() => navigate('/patient/create')}>Create new Patient</button>
                 </div>
               </div>
             </div>
             <div className="row row-header">
               <div className="col-12 row-header-container">
-                <div className="table-responsive">
+                <div className="table-responsive" style={{ overflowX: "scroll" }}>
                   <table
                     className="table table-striped table tablesorter"
                     id="ipi-table"
+                    style={{ minWidth: "1173.6px" }}
                   >
                     <thead className="thead-dark">
                       <tr>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           Patient ID
+                          <button className="btn btn-light sort-button" onClick={() => sortConfig('id')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                              <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                          </button>
                         </th>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           <strong>Patient Firstname</strong>
+                          <button className="btn btn-light sort-button" onClick={() => sortConfig('firstname')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                              <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                          </button>
                         </th>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           Patient Lastname
+                          <button className="btn btn-light sort-button" onClick={() => sortConfig('lastname')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                              <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                          </button>
                         </th>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           Patient Gender
                         </th>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           Created at
+                          <button className="btn btn-light sort-button" onClick={() => sortConfig('createdAt')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                              <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                          </button>
                         </th>
-                        <th className="text-capitalize text-start">
+                        <th className="text-capitalize text-start table-colum">
                           Updated at
+                          <button className="btn btn-light sort-button" onClick={() => sortConfig('updatedAt')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                              <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                            </svg>
+                          </button>
                         </th>
-                        <th className="text-capitalize text-center filter-false sorter-false">
+                        <th className="text-capitalize text-center filter-false sorter-false table-colum" style={{ verticalAlign: 'middle' }}>
                           settings
                         </th>
                       </tr>

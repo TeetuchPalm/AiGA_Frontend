@@ -53,7 +53,7 @@ function PatientCreate(): ReactElement {
 
     useEffect(() => {
         fetchTag()
-      }, [])
+    }, [])
 
     const residualLimbLengthOption: Array<IReactSelect> = [
         { label: 'Long stump length', value: '2' },
@@ -175,13 +175,7 @@ function PatientCreate(): ReactElement {
             navigate('/patient')
             setIsLoading(false)
         } catch (e) {
-            const error: HandleError = e as HandleError
             setIsLoading(false)
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
         }
     }
 
@@ -195,13 +189,7 @@ function PatientCreate(): ReactElement {
                 }))))
             setIsLoading(false)
         } catch (e) {
-            const error: HandleError = e as HandleError
             setIsLoading(false)
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
         }
     }
 
@@ -444,7 +432,7 @@ function PatientCreate(): ReactElement {
                             </div>
                             <div className="row mb-2">
                                 <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Range of motion <span>*</span></strong></label>
+                                    <div className="mb-3"><label className="form-label"><strong>Lower limb range of motion is normally<span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="rangeOfMotionOption" onChange={() => { setRangeOfMotion(true) }} />
@@ -456,7 +444,7 @@ function PatientCreate(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Muscle strength <span>*</span></strong></label>
+                                    <div className="mb-3"><label className="form-label"><strong>Lower limb Muscle strength level is between 4-5 (ฺBased on Oxford scale) <span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="muscleStrengthOption" onChange={() => { setMuscleStrength(true) }} />
@@ -555,7 +543,7 @@ function PatientCreate(): ReactElement {
                     </div>
                     <div className="text-end d-xxl-flex justify-content-xxl-center mb-3 button-area">
                         <button className="btn btn-primary btn-lg submit-button" disabled={validateSubmitButton()} onClick={() => { createPatientHandle() }}>Save</button>
-                        <a className="btn btn-danger btn-lg cancel-button" role="button" onClick={() => { navigate(`/patient`) }}>Cancel</a>
+                        <button className="btn btn-danger btn-lg cancel-button" role="button" onClick={() => { navigate(`/patient`) }}>Cancel</button>
                     </div>
                 </div>
             </div>

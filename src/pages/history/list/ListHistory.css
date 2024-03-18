@@ -130,22 +130,30 @@
                     background: rgb(242, 242, 242);
                     border: solid 1px #969696;
                 }
+                .create-group-button {
+                    height: 35px;
+                    border-radius: 4px;
+                    background: rgb(242, 242, 242);
+                    border: solid 1px #969696;
+                    margin-right: 10px;
+                }
             }
         }
 
 
     }
 
+    .table-colum {
+        vertical-align: middle;
+
+        .sort-button {
+            height: fit-content;
+            margin-left: 10px;
+        }
+    }
+
     .row-header .row-header-container {
         font-family: 'Noto Sans Thai', sans-serif;
 
-        .table-responsive {
-            .desciption-td {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 99px;
-            }
-        }
     }
 }

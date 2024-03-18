@@ -5,7 +5,7 @@ import { IGroupResponse } from "./group/Group"
 
 export interface ICreateHistoryRequest {
     title: string,
-    description: string,
+    description?: string,
     video?: string,
     patientId: number,
     groupIds: number[]

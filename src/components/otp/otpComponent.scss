@@ -1,5 +1,5 @@
 #otpComponent {
-  background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=1772&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot);
+  background-image: url('src/assets/img/BG-3.svg');
   background-size: cover;
   .otp-image {
     width: 300px;
@@ -8,6 +8,8 @@
     margin-left: -60px;
     margin-right: -60px;
     .card {
+      margin-top: 4.7rem;
+      margin-bottom: 4.7rem;
       background-color: rgba(255, 255, 255, 0.5);
       .otp-card {
         font-family: "Noto Sans Thai", sans-serif;

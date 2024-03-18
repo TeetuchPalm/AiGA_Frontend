@@ -1,13 +1,54 @@
 #createHistory {
+    .header-wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+    .description-box {
+        .description-header {
+            float: left;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            p {
+                font-size: 12px;
+                margin-bottom: 5px;
+                align-self: flex-end;
+            }
+        }
+
+        .input-description {
+            resize: none;
+            height: 100px;
+        }
+    }
+
+    .card-body {
+        .form-label {
+            span {
+                color: red;
+            }
+        }
+    }
+
+    .upload-toggle {
+        display: flex;
+        flex-direction: column;
+        .button-is-upload {
+            margin-right: 10px;
+        }
+    }
+
     .video-area {
         margin-top: 10px;
     }
 
     .status-area {
         text-align: center;
+
         .status-text {
-            font-family: 'Noto Sans Thai', 
-            sans-serif;margin-bottom: 24px;
+            font-family: 'Noto Sans Thai',
+                sans-serif;
+            margin-bottom: 24px;
         }
     }
 
@@ -29,6 +70,7 @@
         .save-area {
             display: flex;
             justify-content: center;
+
             .submit-button {
                 margin-right: 8px;
             }

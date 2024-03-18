@@ -1,6 +1,4 @@
 import React, { ReactElement, useState } from "react"
-import { signIn } from "../../services/api/aigaService"
-import swal from "sweetalert2"
 import './login.css'
 import LoginComponent from "../../components/login/loginCompornent"
 import { IUserSignInRequest } from "../../interfaces/User"

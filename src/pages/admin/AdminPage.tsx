@@ -27,7 +27,17 @@ function AdminPage(): ReactElement {
     const [clinicianPaginate, setClinicianPaginate] = useState<IPageResponse<IClinicianResponse[]>>();
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [isShowFilter, setIsShowFilter] = useState<boolean>(false)
+    const [sortBy, setSortBy] = useState<string>("")
+    const [sortType, setSortType] = useState<boolean>(false)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if(sortType) {
+            setClinicianParams({ ...clinicianParams, sortBy: sortBy, sortType: 'asc' })
+        } else {
+            setClinicianParams({ ...clinicianParams, sortBy: sortBy, sortType: 'desc' })
+        }
+      }, [sortBy, sortType]);
 
     useEffect(() => {
         setSearchParamsToClinicianParams();
@@ -46,13 +56,7 @@ function AdminPage(): ReactElement {
                 setClinicianPaginate(response);
                 setIsLoading(false)
             } catch (e) {
-                const error: HandleError = e as HandleError
                 setIsLoading(false)
-                swal.fire({
-                    icon: 'error',
-                    title: 'Failed Error code: ' + error.response.data.errorCode,
-                    text: error.response.data.errorMessage
-                })
             }
         }
     }
@@ -64,7 +68,7 @@ function AdminPage(): ReactElement {
             for (const [key, value] of searchParams?.entries()) {
                 newParams[key as keyof IClinicianParams] = value as any
             }
-            params = { ...newParams, pageNumber: 1 }
+            params = { ...newParams }
         }
         setClinicianParams(params)
     }
@@ -150,6 +154,15 @@ function AdminPage(): ReactElement {
         }
     }
 
+    const sortConfig = (sort: string) => {
+        if(sort === sortBy) {
+          setSortType(!sortType)
+        } else {
+          setSortType(false)
+        }
+        setSortBy(sort)
+      }
+
 
     return (
         <>
@@ -222,38 +235,59 @@ function AdminPage(): ReactElement {
                         </div>
                         <div className="row row-header">
                             <div className="col-12 row-header-container">
-                                <div className="table-responsive">
+                                <div className="table-responsive" style={{overflowX: "scroll"}}>
                                     <table
                                         className="table table-striped table tablesorter"
                                         id="ipi-table"
+                                        style={{minWidth: "1317.6px"}}
                                     >
                                         <thead className="thead-dark">
                                             <tr>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Clinician ID
+                                                    <button className="btn btn-light sort-button" onClick={() => sortConfig('id')}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                                        </svg>
+                                                    </button>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     <strong>Username</strong>
+                                                    <button className="btn btn-light sort-button" onClick={() => sortConfig('username')}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                                        </svg>
+                                                    </button>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Firstname
+                                                    <button className="btn btn-light sort-button" onClick={() => sortConfig('firstname')}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                                        </svg>
+                                                    </button>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Lastname
+                                                    <button className="btn btn-light sort-button" onClick={() => sortConfig('lastname')}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                                        </svg>
+                                                    </button>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Role
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum ">
                                                     Created at
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Updated at
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     2FA-Enable?
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     is-Available?
                                                 </th>
                                             </tr>

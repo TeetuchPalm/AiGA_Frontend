@@ -1,0 +1,92 @@
+#createGroupBox {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    #createGroup {
+      .modal-create-group-window {
+        padding: 0 5px;
+        z-index: 2;
+        position: fixed;
+        background-color: rgba(46, 46, 46, 0.692);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.hidden {
+          display: none;
+        }
+        .modal-create-group-content {
+          position: relative;
+          background-color: #fefefe;
+          border: 1px solid #888;
+          width: 100%;
+          max-width: 600px;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -webkit-animation-name: fadeIn;
+          -webkit-animation-duration: 0.4s;
+          animation-name: fadeIn;
+          animation-duration: 0.4s;
+          text-align: center;
+          .create-group-content-box {
+            padding: 20px;
+            @media screen and (max-width: 560px) {
+              padding: 20px 10px 10px;
+            }
+            .create-group-header {
+              display: flex;
+              justify-content: space-between;
+              height: 30px;
+              margin-bottom: 20px;
+              .close-icon {
+                justify-content: flex-end;
+                cursor: pointer;
+              }
+            }
+            .create-group-body {
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              .input-label {
+
+              }
+              .name-box {
+                width: 100%;
+                margin-bottom: 20px;
+                .input-label-name {
+                    float:left;
+                }
+              }
+              .description-box {
+                width: 100%;
+                margin-bottom: 20px;
+                .input-label-description {
+                    float:left;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    .max-character {
+
+                    }
+                    .label-description {
+
+                    }
+                }
+                .input-description {
+                    resize: none;
+                    height: 100px;
+                }
+              }
+              .submit-button {
+                width: fit-content;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

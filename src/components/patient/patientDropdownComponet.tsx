@@ -22,12 +22,11 @@ function PatientDropdownComponent({ sendSelectedPatient, selectedPatientProp }: 
     const [selectedPatient, setSelectedPatient] = useState<IReactSelect | null>(selectedPatientProp)
 
     useEffect(() => {
-        console.log(selectedPatient)
         getAllPatient()
     }, [])
 
-    useEffect(() => { 
-        setSelectedPatient(selectedPatientProp) 
+    useEffect(() => {
+        setSelectedPatient(selectedPatientProp)
     }, [selectedPatientProp])
 
     useEffect(() => {
@@ -40,20 +39,11 @@ function PatientDropdownComponent({ sendSelectedPatient, selectedPatientProp }: 
 
 
     const getAllPatient = async () => {
-        try {
-            const response: IPageResponse<IPatientResponse[]> = await getPatients(patientQuery)
-            setPatientOption(patientOption.concat(response.entities.map(patient => (
-                {
-                    label: patient.firstname + " " + patient.lastname, value: patient.id.toString()
-                }))))
-        } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
-        }
+        const response: IPageResponse<IPatientResponse[]> = await getPatients(patientQuery)
+        setPatientOption(patientOption.concat(response.entities.map(patient => (
+            {
+                label: patient.firstname + " " + patient.lastname, value: patient.id.toString()
+            }))))
     }
 
     const formatOptionLabel = (option: IReactSelect): React.JSX.Element => {
@@ -69,6 +59,7 @@ function PatientDropdownComponent({ sendSelectedPatient, selectedPatientProp }: 
             <label className="form-label">
                 <strong>Select
                     Patient&nbsp;
+                    <span>*</span>
                 </strong>
             </label>
             <Select

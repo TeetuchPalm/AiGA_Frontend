@@ -29,14 +29,7 @@ function DetailHistory(): ReactElement {
             setIsLoading(false)
         } catch (e) {
             setIsLoading(false)
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            }).then(() => {
-                navigate('/history')
-            })
+            navigate('/history')
         }
     }
 
@@ -173,7 +166,7 @@ function DetailHistory(): ReactElement {
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-7 col-xxl-10">
                                     <div className="mb-3">
-                                        <p>{history?.patient.tags.toString() || ""}</p>
+                                        <p>{history?.patient.tags[0].name || ""}</p>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +190,7 @@ function DetailHistory(): ReactElement {
                             </div>
                         </div>
                         <div className="card-body video-screen-box">
-                            <video src="https://dcdjxb4e8fwaf.cloudfront.net/20240229-212540.mp4" width={700} height={500} controls loop />
+                            <video src={history?.video} width={700} height={500} controls loop />
                             {/* history?.video */}
                         </div>
                     </div>

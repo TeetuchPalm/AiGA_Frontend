@@ -7,8 +7,13 @@
             margin-top: 10px;
             display: flex;
             justify-content: space-between;
+
             .button-page {
                 margin-right: 10px;
+            }
+
+            .export-button {
+                display: flex;
             }
         }
 
@@ -46,32 +51,109 @@
                 height: auto;
                 display: flex;
                 justify-content: center;
+
                 table {
                     width: 718px;
                     height: 300px;
                 }
 
-                .table-row.active {
-                    background-color: rgba(255, 99, 132, 0.5);
+                .table-row.red {
+                    background-color: #ff6a6e;
+                }
+
+                .table-row.yellow {
+                    background-color: #f7fe8a;
+                }
+
+                .table-row.orange {
+                    background-color: #ffcba8;
+                }
+
+                .table-row.white {
+                    background-color: white;
                 }
             }
 
             .score6-table {
                 display: flex;
                 justify-content: center;
+
                 table {
                     max-width: 718px;
                     height: auto;
                 }
+
+                .table-row.red {
+                    background-color: #ff6a6e;
+                }
+
+                .table-row.yellow {
+                    background-color: #f7fe8a;
+                }
+
+                .table-row.orange {
+                    background-color: #ffcba8;
+                }
+
+                .table-row.white {
+                    background-color: white;
+                }
             }
+
+
             .header-text {
                 margin-top: 12px;
                 margin-bottom: 10px;
                 display: flex;
                 justify-content: space-between;
+
                 .show-modal-button {
                     height: 32px;
                     text-align: center;
+                }
+            }
+
+            .show-weight-range {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .weight-range {
+                    border: 1px solid black;
+                    display: flex;
+                    width: 400px;
+                    .white {
+                        text-align: center;
+                        width: 100px;
+                        height: 50px;
+                        background-color: white;
+                    }
+
+                    .yellow {
+                        text-align: center;
+                        width: 100px;
+                        height: 50px;
+                        background-color: #f7fe8a;
+                    }
+
+                    .orange {
+                        text-align: center;
+                        width: 100px;
+                        height: 50px;
+                        background-color: #ffcba8;
+                    }
+
+                    .red {
+                        text-align: center;
+                        width: 100px;
+                        height: 50px;
+                        background-color: #ff6a6e;
+                    }
+                }
+                .range-mean {
+                    width: 400px;
+                    display: flex;
+                    justify-content: space-between;
                 }
             }
         }

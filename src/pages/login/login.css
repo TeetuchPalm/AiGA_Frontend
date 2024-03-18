@@ -1,12 +1,1 @@
 
-.login {
-  background-image: url(https://images.unsplash.com/photo-1558522195-e1201b090344?auto=format&amp;fit=crop&amp;q=80&amp;w=1770&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-attachment: fixed;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  background-size: cover
-}
-
-section {
-  font-family: 'Noto Sans Thai', sans-serif;
-}

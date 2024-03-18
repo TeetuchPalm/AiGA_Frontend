@@ -1,7 +1,8 @@
 #pogsbox {
   position: absolute;
-  top: 40px;
-  left: 0;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
   #pogs {
     .modal-pogs-window {
       padding: 0 5px;
@@ -17,10 +18,14 @@
         display: none;
       }
       .modal-pogs-content {
+        @media screen and (max-height: 590px) {
+          top: 5%;
+        }
         position: relative;
+        margin-top: 40px;
         background-color: #fefefe;
         border: 1px solid #888;
-        max-width: 600px;
+        max-width: 700px;
         border-radius: 4px;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -29,9 +34,13 @@
         animation-name: fadeIn;
         animation-duration: 0.4s;
         text-align: center;
+        @media screen and (max-width: 631.2px) {
+          width: 390px;
+          min-width: 390px;
+        }
         .pogs-content-box {
           padding: 20px;
-          @media screen and (max-width: 560px) {
+          @media screen and (max-width: 631.2px) {
             padding: 20px 10px 10px;
           }
           .pogs-header {
@@ -45,15 +54,23 @@
             }
           }
           .pogs-body {
+            @media screen and (max-height: 590px) {
+              height: 180px;
+              max-height: 180px;
+            }
+            height: auto;
+            overflow-y: auto;
             .body-pogs-table-list {
+              overflow-x: auto;
               height: auto;
               width: 100%;
               border: solid 1px #6c757d;
               border-radius: 4px;
               #pogsListTable {
-                width: 100%;
+                width: 580px;
                 background-color: #6c757d;
                 .table-thead {
+                  font-size: 15px;
                   width: 100%;
                   color: white;
                   display: table;
@@ -64,11 +81,14 @@
                       border-left: 1px solid white;
                       text-align: center;
                       &#scoreNo {
-                        width: 30%;
+                        width: 20%;
                         border-left: none;
                       }
                       &#pogshead {
-                        width: 70%;
+                        width: 50%;
+                      }
+                      &#interestedPhase {
+                        width: 30%;
                       }
                     }
                   }
@@ -82,11 +102,11 @@
                     width: 100%;
                     table-layout: fixed;
                     height: 45px;
-                    font-size: 14px;
+                    font-size: 12px;
                     color: #333333;
                     .table-row-no-data-text {
                       font-family: "Sarabun-Bold", sans-serif;
-                      font-size: 20px;
+                      font-size: 12px;
                       font-weight: bold;
                       text-align: center;
                       height: 47px;
@@ -99,7 +119,7 @@
                     width: 100%;
                     table-layout: fixed;
                     height: 45px;
-                    font-size: 14px;
+                    font-size: 12px;
                     color: #333333;
                     .row-data {
                       border: solid 1px #d8d8d8;
@@ -107,11 +127,14 @@
                       padding: 10px 10px 5px 10px;
                       overflow-wrap: anywhere;
                       &#pogs {
-                        width: 30%;
+                        width: 20%;
                         border-left: none;
                       }
                       &.description {
-                        width: 70%;
+                        width: 50%;
+                      }
+                      &.insterested-phase {
+                        width: 30%;
                       }
                     }
                   }

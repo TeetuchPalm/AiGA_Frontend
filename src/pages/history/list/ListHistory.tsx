@@ -13,6 +13,7 @@ import { IHistoryParams, IHistoryResponse } from "../../../interfaces/history/Hi
 import LoadingModal from "../../../components/loading/loading";
 import HistoryListFilter from "../../../components/filter/history-list/HistoryListFilter";
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface";
+import CreateGroupModal from "../../../components/modal/group/createGroup";
 
 function ListHistory(): ReactElement {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function ListHistory(): ReactElement {
         pageNumber: 1,
         pageSize: 7,
         sortBy: "id",
-        sortType: "asc",
+        sortType: "desc",
     };
     const [currentPage, setCurrentPage] = useState(1);
     const [historyParams, setHistoryParams] = useState<IHistoryParams>({})
@@ -31,7 +32,19 @@ function ListHistory(): ReactElement {
     const [selectedGroup, setSelectedGroup] = useState<IReactSelect | null>(null)
     const [selectedPatient, setSelectedPatient] = useState<IReactSelect | null>(null)
     const [selectedClinician, setSelectedClinician] = useState<IReactSelect | null>(null)
-    const navigate = useNavigate();
+    const [isShowModal, setIsShowModal] = useState<boolean>(false)
+    const [sortBy, setSortBy] = useState<string>("")
+    const [sortType, setSortType] = useState<boolean>(false)
+    const navigate = useNavigate()
+    
+
+    useEffect(() => {
+        if(sortType) {
+          setHistoryParams({ ...historyParams, sortBy: sortBy, sortType: 'asc' })
+        } else {
+            setHistoryParams({ ...historyParams, sortBy: sortBy, sortType: 'desc' })
+        }
+      }, [sortBy, sortType]);
 
     useEffect(() => {
         setSearchParamsToHistoryParams();
@@ -57,12 +70,7 @@ function ListHistory(): ReactElement {
                 setIsLoading(false)
             } catch (e) {
                 setIsLoading(false)
-                const error: HandleError = e as HandleError
-                swal.fire({
-                    icon: 'error',
-                    title: 'Failed Error code: ' + error.response.data.errorCode,
-                    text: error.response.data.errorMessage
-                })
+
             }
         }
     };
@@ -74,7 +82,7 @@ function ListHistory(): ReactElement {
             for (const [key, value] of searchParams?.entries()) {
                 newParams[key as keyof IHistoryParams] = value as any
             }
-            params = { ...newParams, pageNumber: 1 }
+            params = { ...newParams }
         }
         setHistoryParams(params)
     };
@@ -101,7 +109,7 @@ function ListHistory(): ReactElement {
             icon: "question",
             showCancelButton: true,
             confirmButtonText: "Confirm"
-          }).then(async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
                     setIsLoading(true)
@@ -116,15 +124,9 @@ function ListHistory(): ReactElement {
                     })
                 } catch (e) {
                     setIsLoading(false)
-                    const error: HandleError = e as HandleError
-                    swal.fire({
-                        icon: 'error',
-                        title: 'Failed Error code: ' + error.response.data.errorCode,
-                        text: error.response.data.errorMessage
-                    })
                 }
             }
-          })
+        })
     }
 
     const showDetailFilter = (): JSX.Element => {
@@ -148,7 +150,7 @@ function ListHistory(): ReactElement {
                 return (
                     <tr key={index} onClick={() => onNavigate(item.id)}>
                         <td className="text-start">{item.id}</td>
-                        <td className="text-start">{item.title}</td>
+                        <td className="text-start title-td">{item.title}</td>
                         <td className="text-start desciption-td">{item.description}</td>
                         <td className="text-start">{item.patient.firstname}</td>
                         <td className="text-start">{item.patient.lastname}</td>
@@ -278,10 +280,20 @@ function ListHistory(): ReactElement {
         }
     };
 
+    const sortConfig = (sort: string) => {
+        if(sort === sortBy) {
+          setSortType(!sortType)
+        } else {
+          setSortType(false)
+        }
+        setSortBy(sort)
+      }
+
 
     return (
         <>
             <LoadingModal showLoadingModal={isLoading} />
+            <CreateGroupModal isShowModal={isShowModal} showModal={value => setIsShowModal(value)} />
             {isShowFilter &&
                 <div id="patientListFilter">
                     <HistoryListFilter
@@ -353,41 +365,49 @@ function ListHistory(): ReactElement {
                                     {showDetailFilter()}
                                 </div>
                                 <div className="create-history">
+                                    <button className="btn btn-light btn-sm create-group-button" type="button" onClick={() => setIsShowModal(true)}>Create History Group</button>
                                     <button className="btn btn-light btn-sm create-button" type="button" onClick={() => navigate('/history/create')}>Create new history</button>
                                 </div>
                             </div>
                         </div>
                         <div className="row row-header">
                             <div className="col-12 row-header-container">
-                                <div className="table-responsive">
+                                <div className="table-responsive" style={{overflowX: "scroll"}}>
                                     <table
+                                    
                                         className="table table-striped table tablesorter"
                                         id="ipi-table"
+                                        style={{minWidth: "1173.6px"}}
                                     >
                                         <thead className="thead-dark">
                                             <tr>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     History ID
+                                                    <button className="btn btn-light sort-button" onClick={() => sortConfig('id')}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">
+                                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                                        </svg>
+                                                    </button>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum" style={{width: '185px'}}>
                                                     <strong>Title</strong>
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Description
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Patient firstname
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Patient lastname
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum">
                                                     Created at
                                                 </th>
-                                                <th className="text-capitalize text-start">
+                                                <th className="text-capitalize text-start table-colum ">
                                                     Updated at
                                                 </th>
-                                                <th className="text-capitalize text-center filter-false sorter-false">
+                                                <th className="text-capitalize text-center filter-false sorter-false table-colum">
                                                     settings
                                                 </th>
                                             </tr>

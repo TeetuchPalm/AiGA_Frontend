@@ -131,9 +131,29 @@
                     border-radius: 4px;
                     border: solid 1px #969696;
                 }
+
+                .create-tag-button {
+                    height: 35px;
+                    border-radius: 4px;
+                    background: rgb(242, 242, 242);
+                    border: solid 1px #969696;
+                    margin-right: 10px;
+                }
             }
         }
+
     }
+
+    .table-colum {
+        vertical-align: middle;
+
+        .sort-button {
+            height: fit-content;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+
 
     .row-header .row-header-container {
         font-family: 'Noto Sans Thai', sans-serif;

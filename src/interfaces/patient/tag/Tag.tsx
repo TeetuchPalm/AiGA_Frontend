@@ -8,3 +8,7 @@ export interface ITagResponse {
 export interface ITagParams extends IPageParams {
     name?: string
 }
+
+export interface ITagRequest {
+    name: string
+}

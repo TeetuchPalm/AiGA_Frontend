@@ -9,7 +9,6 @@ import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { getAllPageTag } from "../../../services/api/aigaService"
 import { cloneDeep } from "lodash"
-import "./PatientListFilter.css"
 interface IProps {
   filterParams: IPatientParams
   showFilter: (showFilter: boolean) => void
@@ -40,20 +39,11 @@ function PatientListFilter({ filterParams, showFilter, sendParams, isShowFilter,
   }, [tagOptions])
 
   const fetchTag = async () => {
-    try {
       const response: IPageResponse<ITagResponse[]> = await getAllPageTag(tagQuery)
       setTagOptions(tagOptions.concat(response.entities.map(tag => (
         {
           label: tag.name, value: tag.id.toString()
         }))))
-    } catch (e) {
-      const error: HandleError = e as HandleError
-      swal.fire({
-        icon: 'error',
-        title: 'Failed Error code: ' + error.response.data.errorCode,
-        text: error.response.data.errorMessage
-      })
-    }
   }
 
   const formatOptionLabel = (option: IReactSelect): React.JSX.Element => {

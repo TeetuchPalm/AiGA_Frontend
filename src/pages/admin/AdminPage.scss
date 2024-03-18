@@ -130,6 +130,15 @@
 
     }
 
+    .table-colum {
+        vertical-align: middle;
+
+        .sort-button {
+            height: fit-content;
+            margin-left: 10px;
+        }
+    }
+
     .row-header .row-header-container {
         font-family: 'Noto Sans Thai', sans-serif;
     }

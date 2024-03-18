@@ -134,41 +134,32 @@ function PatientEdit(): ReactElement {
     }
 
     const getPatientInfo = async (id: string) => {
-        try {
-            const response: IPatientResponse = await getPatientById(id)
-            setPatientName(response.firstname)
-            setPatientSurname(response.lastname)
-            setPatientGender(response.gender)
-            setPatientDOB(new Date(response.dob))
-            setPatientWeight(response.weight)
-            setPatientHeight(response.height)
-            setAmputatedLeg(response.amputatedLeg)
-            if (response.residualLimbLength === 0) {
-                setSelectedResidualLimbLength({ label: 'Long stump length', value: response.residualLimbLength.toString() })
-            } else if (response.residualLimbLength === 1) {
-                setSelectedResidualLimbLength({ label: 'Medium stump length', value: response.residualLimbLength.toString() })
-            } else if (response.residualLimbLength === 2) {
-                setSelectedResidualLimbLength({ label: 'Long stump length', value: response.residualLimbLength.toString() })
-            }
-            setSelectedResidualLimbShape({ label: response.residualLimbShape, value: response.residualLimbShape })
-            setSelectedFunctionLevelOptions({ label: response.functionalLevel.toString(), value: response.functionalLevel.toString() })
-            setPatientUnderlyingDisease(response.underlyingDisease)
-            setRangeOfMotion(response.rangeOfMotion)
-            setMuscleStrength(response.muscleStrength)
-            setSelectedStructure({ label: response.prosthesisStructure, value: response.prosthesisStructure })
-            setSelectedSocket({ label: response.prosthesisSocket, value: response.prosthesisSocket })
-            setSelectedLiner({ label: response.prosthesisLinear, value: response.prosthesisLinear })
-            setSelectedFoot({ label: response.prosthesisFoot, value: response.prosthesisFoot })
-            setSelectedSuspension({ label: response.prosthesisSuspension, value: response.prosthesisSuspension })
-            setSelectedTag({ label: response.tags[0].name, value: response.tags[0].id.toString() })
-        } catch (e) {
-            const error: HandleError = e as HandleError
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
+        const response: IPatientResponse = await getPatientById(id)
+        setPatientName(response.firstname)
+        setPatientSurname(response.lastname)
+        setPatientGender(response.gender)
+        setPatientDOB(new Date(response.dob))
+        setPatientWeight(response.weight)
+        setPatientHeight(response.height)
+        setAmputatedLeg(response.amputatedLeg)
+        if (response.residualLimbLength === 0) {
+            setSelectedResidualLimbLength({ label: 'Long stump length', value: response.residualLimbLength.toString() })
+        } else if (response.residualLimbLength === 1) {
+            setSelectedResidualLimbLength({ label: 'Medium stump length', value: response.residualLimbLength.toString() })
+        } else if (response.residualLimbLength === 2) {
+            setSelectedResidualLimbLength({ label: 'Long stump length', value: response.residualLimbLength.toString() })
         }
+        setSelectedResidualLimbShape({ label: response.residualLimbShape, value: response.residualLimbShape })
+        setSelectedFunctionLevelOptions({ label: response.functionalLevel.toString(), value: response.functionalLevel.toString() })
+        setPatientUnderlyingDisease(response.underlyingDisease)
+        setRangeOfMotion(response.rangeOfMotion)
+        setMuscleStrength(response.muscleStrength)
+        setSelectedStructure({ label: response.prosthesisStructure, value: response.prosthesisStructure })
+        setSelectedSocket({ label: response.prosthesisSocket, value: response.prosthesisSocket })
+        setSelectedLiner({ label: response.prosthesisLinear, value: response.prosthesisLinear })
+        setSelectedFoot({ label: response.prosthesisFoot, value: response.prosthesisFoot })
+        setSelectedSuspension({ label: response.prosthesisSuspension, value: response.prosthesisSuspension })
+        setSelectedTag({ label: response.tags[0].name, value: response.tags[0].id.toString() })
     }
 
     const mapStateToCreatePatientRequest = (): IPatientRequest => {
@@ -219,13 +210,7 @@ function PatientEdit(): ReactElement {
                 }))))
             setIsLoading(false)
         } catch (e) {
-            const error: HandleError = e as HandleError
             setIsLoading(false)
-            swal.fire({
-                icon: 'error',
-                title: 'Failed Error code: ' + error.response.data.errorCode,
-                text: error.response.data.errorMessage
-            })
         }
     }
 
@@ -239,17 +224,8 @@ function PatientEdit(): ReactElement {
             confirmButtonText: "Confirm"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                try {
-                    const response = await editPatient(request, id!!)
-                    navigate('/patient')
-                } catch (e) {
-                    const error: HandleError = e as HandleError
-                    swal.fire({
-                        icon: 'error',
-                        title: 'Failed Error code: ' + error.response.data.errorCode,
-                        text: error.response.data.errorMessage
-                    })
-                }
+                const response = await editPatient(request, id!!)
+                navigate('/patient')
             }
         })
     }

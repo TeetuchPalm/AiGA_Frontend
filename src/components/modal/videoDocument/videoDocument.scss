@@ -1,0 +1,89 @@
+#videoDocumentBox {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  #videoDocument {
+    .modal-video-document-window {
+      padding: 0 5px;
+      z-index: 2;
+      position: fixed;
+      background-color: rgba(46, 46, 46, 0.692);
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.hidden {
+        display: none;
+      }
+      .modal-video-document-content {
+        overflow-y: auto;
+        display: flex;
+        position: relative;
+        width: 1150px;
+        min-width: 1150px;
+        max-height: 500px;
+        margin-top: 40px;
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        @media screen and (max-width: 1212px) {
+          width: 560px;
+          min-width: 560px;
+        }
+        @media screen and (max-width: 580px) {
+          width: 360px;
+          min-width: 360px;
+          overflow-x: auto
+          ;
+        }
+        .video-document-content-box {
+          width: 1130px;
+          min-width: 1130px;
+          padding: 20px;
+          @media screen and (max-width: 1212px) {
+            padding: 20px 10px 10px;
+            width: 540px;
+            min-width: 540px;
+          }
+          .video-document-header {
+            display: flex;
+            justify-content: space-between;
+            height: 30px;
+            margin-bottom: 20px;
+            .close-icon {
+              justify-content: flex-end;
+              cursor: pointer;
+            }
+          }
+          .video-document-body {
+            font-family: "Noto Sans Thai", sans-serif;
+            text-align: left;
+            .header {
+              font-size: 16px;
+              margin-bottom: 0;
+              font-weight: bold;
+            }
+            .primary-number {
+              font-size: 14px;
+              margin-bottom: 0;
+              .remark {
+                margin-bottom: 0;
+                text-decoration: underline;
+              }
+            }
+            .secondary-number {
+              margin-bottom: 0;
+              margin-left: 20px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

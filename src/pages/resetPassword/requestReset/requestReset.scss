@@ -1,0 +1,41 @@
+#requestReset {
+  background: url(../src/assets/img/BG-1.svg);
+  background-size: cover;
+
+  .aiga-logo {
+    width: 300px;
+  }
+  .card {
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+    .request-card {
+      font-family: "Noto Sans Thai", sans-serif;
+      .card-header-text {
+        margin-bottom: 32px;
+      }
+      .card-hr {
+        width: 80px;
+        margin-top: 0px;
+        height: 2px;
+        color: var(--bs-primary-text-emphasis);
+        margin-bottom: 8px;
+      }
+      .email-label {
+        display: flex;
+        justify-content: space-between;
+        .input-email-label {
+          text-align: center;
+          margin-bottom: 0px;
+        }
+        .req-email {
+          display: flex;
+          .req-email-text {
+            font-size: 10px;
+            color: red;
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+}
