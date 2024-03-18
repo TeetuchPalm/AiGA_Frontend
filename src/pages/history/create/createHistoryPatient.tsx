@@ -14,7 +14,7 @@ import { RecordWebcamOptions, useRecordWebcam } from "react-record-webcam"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { IGroupParams, IGroupResponse } from "../../../interfaces/history/group/Group"
 import Select from "react-select"
-import logo from "../../assets/img/AiGalogoblack.svg"
+import logo from "../../../assets/img/AiGalogoblack.svg"
 function CreateHistoryPatient(): ReactElement {
     const options: RecordWebcamOptions =
     {

@@ -15,7 +15,7 @@ import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { IGroupParams, IGroupResponse } from "../../../interfaces/history/group/Group"
 import Select from "react-select"
 import VideoDocument from "../../../components/modal/videoDocument/videoDocument"
-import logo from "../../assets/img/AiGalogoblack.svg"
+import logo from "../../../assets/img/AiGalogoblack.svg"
 
 function CreateHistory(): ReactElement {
   const options: RecordWebcamOptions =
