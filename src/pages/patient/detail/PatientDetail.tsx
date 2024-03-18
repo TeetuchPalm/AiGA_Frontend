@@ -1,9 +1,7 @@
 import { ReactElement, useEffect, useState } from "react";
 import { IPatientResponse } from "../../../interfaces/patient/Patient";
 import { getPatientById } from "../../../services/api/aigaService";
-import swal from "sweetalert2"
 import { useNavigate, useParams } from "react-router-dom";
-import { HandleError } from "../../../interfaces/error/handleError";
 import LoadingModal from "../../../components/loading/loading";
 import './PatientDetail.css'
 

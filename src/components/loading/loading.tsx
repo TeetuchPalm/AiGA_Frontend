@@ -1,4 +1,3 @@
-import { ReactElement } from "react"
 import "./loading.scss"
 
 export type Props = {
@@ -8,7 +7,6 @@ export type Props = {
 export default function LoadingModal({
     showLoadingModal
 }: Props) {
-
     return (
         <div id="myLoaderModalBox">
             <div id="LoaderModal">

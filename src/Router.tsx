@@ -1,11 +1,8 @@
-import React, { ReactElement, useEffect} from 'react'
-import { Navigate, Route, Routes, useLocation, redirect} from 'react-router-dom'
+import { ReactElement } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Login from './pages/login/login'
 import Register from './pages/register/register'
 import CreateHistory from './pages/history/create/CreateHistory'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 import { IUserJWT } from './interfaces/User'
 import jwtDecode from 'jwt-decode'
 import PatientList from './pages/patient/list/PatientList'
@@ -26,20 +23,6 @@ function RequireAuth({ children }: { children: ReactElement}): ReactElement {
     if(localStorage.getItem('token') === null && !withouNavRoutes.some((item) => pathname.includes(item))) {
         return <Navigate to="/login" state={{ from: pathname }} replace />
     }
-    // useEffect(() => {
-    //     dayjs.extend(timezone)
-    //     dayjs.extend(utc)
-    //     const bangkokTimeZone: string = 'Asia/Bangkok'
-    //     const token: string = localStorage.getItem('token') ?? ''
-    //     const now = dayjs(new Date()).tz(bangkokTimeZone)
-        // const userDetail: IUserJWT = jwtDecode(token) as IUserJWT
-    //     const expired = dayjs.unix(userDetail['exp'] ?? now.unix()).tz(bangkokTimeZone) ?? 0
-    //     const diff = expired.diff(now)
-    //     if(diff <= 0) {
-    //         localStorage.clear()
-    //         window.location.href = "/login"
-    //     }
-    // }, [])
     return children
 }
 

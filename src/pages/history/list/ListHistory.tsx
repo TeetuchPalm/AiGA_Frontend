@@ -8,7 +8,6 @@ import { convertDate, getTime } from "../../../plugins";
 import Pagination from "../../../components/paginate/paginate";
 import { IApiResponse } from "../../../interfaces/ApiResponse";
 import swal from 'sweetalert2'
-import { HandleError } from "../../../interfaces/error/handleError";
 import { IHistoryParams, IHistoryResponse } from "../../../interfaces/history/History";
 import LoadingModal from "../../../components/loading/loading";
 import HistoryListFilter from "../../../components/filter/history-list/HistoryListFilter";
@@ -22,8 +21,7 @@ function ListHistory(): ReactElement {
         pageSize: 7,
         sortBy: "id",
         sortType: "desc",
-    };
-    const [currentPage, setCurrentPage] = useState(1);
+    }
     const [historyParams, setHistoryParams] = useState<IHistoryParams>({})
     const [isShowFilter, setIsShowFilter] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -98,7 +96,6 @@ function ListHistory(): ReactElement {
     };
 
     const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber);
         setHistoryParams({ ...historyParams, pageNumber: pageNumber });
     };
 

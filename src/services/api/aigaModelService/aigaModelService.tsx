@@ -1,5 +1,4 @@
 import { IHistoryModelRequest } from "../../../interfaces/history/History";
-import axiosWithInterceoter from "../../../axios/axiosWithIntercepter";
 import axios from "axios";
 
 const modelAxios = axios.create()

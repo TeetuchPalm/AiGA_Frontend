@@ -4,8 +4,6 @@ import { IReactSelect } from "../../interfaces/general-component/reactSelectInte
 import { IPatientParams, IPatientResponse } from "../../interfaces/patient/Patient"
 import { getPatients } from "../../services/api/aigaService"
 import { IPageResponse } from "../../interfaces/paginate/Page"
-import { HandleError } from "../../interfaces/error/handleError"
-import swal from "sweetalert2"
 
 interface IProps {
     sendSelectedPatient: (params: IReactSelect | null) => void

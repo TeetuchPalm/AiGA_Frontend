@@ -63,7 +63,6 @@ function Register(): ReactElement {
       setIsLoading(true)
       const request = userSignUpRequest
       request.password = password
-      console.log(request)
       await signUp(request)
       setIsLoading(false)
       swal.fire({

@@ -333,7 +333,6 @@ function AnalyticsHistory(): ReactElement {
                         <button className="btn btn-primary button-page" type="button" onClick={() => navigate("/history/" + id)}>History Detail</button>
                     </div>
                     <div className="export-button">
-                        {/* <button className="btn btn-primary export-pdf" type="button" onClick={exportPdf}>Export PDF</button> */}
                         <ExportPdf
                             pictureOne={chartKneeRef}
                             pictureTwo={chartHipRef}
@@ -348,7 +347,6 @@ function AnalyticsHistory(): ReactElement {
                             pictureThreeResearch={null}
                             pictureFourResearch={null}
                         />
-                        {/* <button className="btn btn-primary" type="button" onClick={exportExcel}>Export Excel</button> */}
                         <ExportExcel
                             analyticResult={historyAnalytics}
                             sendIsLoading={(value) => {

@@ -266,7 +266,6 @@ function AnalyticsHistoryResearcher(): ReactElement {
                             }}
                             disable={!history}
                         />
-                        {/* <button className="btn btn-primary" type="button" onClick={exportExcel}>Export Excel</button> */}
                         <ExportExcel
                             analyticResult={historyAnalytics}
                             sendIsLoading={(value) => {

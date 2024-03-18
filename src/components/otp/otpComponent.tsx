@@ -1,7 +1,6 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { otpVerify, refreshOTP } from "../../services/api/aigaService";
 import { IUser } from "../../interfaces/User";
-import { HandleError } from "../../interfaces/error/handleError";
 import swal from "sweetalert2"
 import "./otpComponent.scss"
 import LoadingModal from "../loading/loading";

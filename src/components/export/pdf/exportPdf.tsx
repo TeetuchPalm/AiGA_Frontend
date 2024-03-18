@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 import {
   Chart as ChartJS,
 } from 'chart.js';
-import ReactPDF, { Document, Font, Image, Page, Path, StyleSheet, Svg, Text, View, pdf } from "@react-pdf/renderer"
+import ReactPDF, { Document, Font, Image, Page, StyleSheet, Text, View, pdf } from "@react-pdf/renderer"
 import { IHistoryResponse } from "../../../interfaces/history/History"
 import html2canvas from "html2canvas"
 import "./exportPdf.scss"

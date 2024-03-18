@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import { ReactElement } from "react"
 import "./exportExcel.scss"
 import XLSX from "xlsx";
 import { saveAs } from "file-saver"

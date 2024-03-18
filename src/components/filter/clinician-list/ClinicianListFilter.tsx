@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react"
+import { ReactElement, useState } from "react"
 import { cloneDeep } from "lodash"
 import { IHistoryParams } from "../../../interfaces/history/History"
 import { IClinicianParams } from "../../../interfaces/clinician/Clinician"

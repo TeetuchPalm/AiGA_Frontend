@@ -1,8 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import "./DetailHistory.css"
 import { IHistoryResponse } from "../../../interfaces/history/History";
-import { HandleError } from "../../../interfaces/error/handleError";
-import swal from "sweetalert2";
 import { getHistoryById } from "../../../services/api/aigaService";
 import { useNavigate, useParams } from "react-router-dom";
 import { convertDate, getTime } from "../../../plugins";
@@ -191,7 +189,6 @@ function DetailHistory(): ReactElement {
                         </div>
                         <div className="card-body video-screen-box">
                             <video src={history?.video} width={700} height={500} controls loop />
-                            {/* history?.video */}
                         </div>
                     </div>
                 </form>

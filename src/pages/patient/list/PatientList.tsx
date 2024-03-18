@@ -12,7 +12,6 @@ import { convertDate, getTime } from "../../../plugins";
 import Pagination from "../../../components/paginate/paginate";
 import { IApiResponse } from "../../../interfaces/ApiResponse";
 import swal from 'sweetalert2'
-import { HandleError } from "../../../interfaces/error/handleError";
 import LoadingModal from "../../../components/loading/loading";
 import PatientListFilter from "../../../components/filter/patient-list/PatientListFilter";
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface";
@@ -26,7 +25,6 @@ function PatientList(): ReactElement {
     sortBy: "id",
     sortType: "desc",
   };
-  const [currentPage, setCurrentPage] = useState(1);
   const [patientParams, setPatientParams] = useState<IPatientParams>({})
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [patientPaginate, setPatientPaginate] =
@@ -98,7 +96,6 @@ function PatientList(): ReactElement {
   };
 
   const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
     setPatientParams({ ...patientParams, pageNumber: pageNumber });
   };
 

@@ -1,14 +1,12 @@
 import React, { ReactElement, useState, useEffect, useRef } from "react"
 import { createHistory, getAllPageGroup, getPatientById, uploadToS3 } from "../../../services/api/aigaService"
-import swal from "sweetalert2"
 import './CreateHistory.css'
 import { ICreateHistoryRequest } from "../../../interfaces/history/History"
 import { IPatientResponse } from "../../../interfaces/patient/Patient"
 import PatientDropdownComponent from "../../../components/patient/patientDropdownComponet"
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface"
-import { HandleError } from "../../../interfaces/error/handleError"
 import { ITagResponse } from "../../../interfaces/patient/tag/Tag"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { createModelData } from "../../../services/api/aigaModelService/aigaModelService"
 import LoadingModal from "../../../components/loading/loading"
 import dayjs from "dayjs"
@@ -16,7 +14,6 @@ import { RecordWebcamOptions, useRecordWebcam } from "react-record-webcam"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { IGroupParams, IGroupResponse } from "../../../interfaces/history/group/Group"
 import Select from "react-select"
-import ReactSwitch from "react-switch"
 import VideoDocument from "../../../components/modal/videoDocument/videoDocument"
 
 function CreateHistory(): ReactElement {
@@ -33,7 +30,6 @@ function CreateHistory(): ReactElement {
   }
 
   const recordWebcam = useRecordWebcam(options)
-  const location = useLocation()
 
   const [selectedPatient, setSelectedPatient] = useState<IReactSelect | null>()
   const [title, setTitle] = useState<string>()

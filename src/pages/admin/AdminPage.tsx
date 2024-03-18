@@ -1,12 +1,9 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { URLSearchParamsInit, useSearchParams } from "react-router-dom";
 import "./AdminPage.scss";
-import { useNavigate } from "react-router-dom";
 import { IClinicianParams, IClinicianResponse } from "../../interfaces/clinician/Clinician";
 import { IPageResponse } from "../../interfaces/paginate/Page";
 import { getClinicians, updateAvailable } from "../../services/api/aigaService";
-import swal from "sweetalert2"
-import { HandleError } from "../../interfaces/error/handleError";
 import { convertDate, getTime } from "../../plugins";
 import Pagination from "../../components/paginate/paginate";
 import ReactSwitch from "react-switch";
@@ -22,14 +19,12 @@ function AdminPage(): ReactElement {
         sortBy: "id",
         sortType: "asc",
     }
-    const [currentPage, setCurrentPage] = useState(1);
     const [clinicianParams, setClinicianParams] = useState<IClinicianParams>({})
     const [clinicianPaginate, setClinicianPaginate] = useState<IPageResponse<IClinicianResponse[]>>();
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [isShowFilter, setIsShowFilter] = useState<boolean>(false)
     const [sortBy, setSortBy] = useState<string>("")
     const [sortType, setSortType] = useState<boolean>(false)
-    const navigate = useNavigate()
 
     useEffect(() => {
         if(sortType) {
@@ -84,7 +79,6 @@ function AdminPage(): ReactElement {
     }
 
     const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber)
         setClinicianParams({ ...clinicianParams, pageNumber: pageNumber })
     }
 

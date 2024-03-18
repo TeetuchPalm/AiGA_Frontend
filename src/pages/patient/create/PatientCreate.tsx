@@ -1,16 +1,13 @@
 import React, { ReactElement, useEffect, useState } from "react"
 import Select from "react-select"
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface"
-import dayjs from "dayjs"
-import { IPatientRequest, IPatientResponse } from "../../../interfaces/patient/Patient"
+import { IPatientRequest } from "../../../interfaces/patient/Patient"
 import './PatientCreate.css'
 import { createPatient, getAllPageTag } from "../../../services/api/aigaService"
 import { useNavigate } from "react-router-dom"
-import { HandleError } from "../../../interfaces/error/handleError"
-import swal from "sweetalert2"
-import LoadingModal from "../../../components/loading/loading"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
+import LoadingModal from "../../../components/loading/loading"
 
 
 
@@ -171,7 +168,7 @@ function PatientCreate(): ReactElement {
         const request = mapStateToCreatePatientRequest()
         try {
             setIsLoading(true)
-            const response = await createPatient(request)
+            await createPatient(request)
             navigate('/patient')
             setIsLoading(false)
         } catch (e) {
@@ -206,7 +203,7 @@ function PatientCreate(): ReactElement {
 
     return (
         <div id="createPatient">
-            {/* <LoadingModal showLoadingModal={isLoading} /> */}
+            <LoadingModal showLoadingModal={isLoading} />
             <div className="container-fluid">
                 <div className="d-sm-flex justify-content-between align-items-center mb-4">
                     <h3 className="text-dark mb-0">Patient Demographic Data</h3>

@@ -223,7 +223,7 @@
 .btnNoBorders:active,
 .btnNoBorders:focus {
     outline: 0;
-    -moz-outline-style: none
+    outline-style: none
 }
 
 .trashBtn {

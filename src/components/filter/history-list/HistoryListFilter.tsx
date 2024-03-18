@@ -1,7 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react"
 import Select from "react-select"
-import { HandleError } from "../../../interfaces/error/handleError"
-import swal from "sweetalert2"
 import { IReactSelect } from "../../../interfaces/general-component/reactSelectInterface"
 import { IPageParams, IPageResponse } from "../../../interfaces/paginate/Page"
 import { getAllPageGroup, getClinicians, getPatients } from "../../../services/api/aigaService"

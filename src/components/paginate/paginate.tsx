@@ -1,4 +1,3 @@
-import { useEffect, useMemo, useState } from "react"
 import "./paginate.css"
 export type Props = {
     currentPage: number
