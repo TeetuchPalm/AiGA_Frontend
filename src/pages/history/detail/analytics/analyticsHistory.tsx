@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useRef, useState } from "react";
-import { IHistoryModelResponse, IHistoryModelResultLeftResponse, IHistoryModelResultRightResponse, IHistoryScoreResultResponse } from "../../../../interfaces/history/historyModel/historyModel";
+import { IHistoryModelResponse, IHistoryModelResultLeftResponse, IHistoryModelResultRightResponse } from "../../../../interfaces/history/historyModel/historyModel";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDiagnosisData, getHistoryById } from "../../../../services/api/aigaService";
 import {

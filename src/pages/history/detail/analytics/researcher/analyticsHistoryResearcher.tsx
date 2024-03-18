@@ -11,14 +11,13 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { Chart, Line } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 import './analyticsHistoryResearcher.scss'
 import LoadingModal from "../../../../../components/loading/loading";
-import { IHistoryGraphResponse, IHistoryModelResponse, IHistoryScoreResultResponse } from "../../../../../interfaces/history/historyModel/historyModel";
+import { IHistoryGraphResponse, IHistoryModelResponse } from "../../../../../interfaces/history/historyModel/historyModel";
 import ExportExcel from "../../../../../components/export/excel/exportExcel";
 import ExportPdf from "../../../../../components/export/pdf/exportPdf";
 import { IHistoryResponse } from "../../../../../interfaces/history/History";
-import { forEach } from "lodash";
 
 function AnalyticsHistoryResearcher(): ReactElement {
     const { id } = useParams()
