@@ -4,6 +4,7 @@ import { IUser } from "../../interfaces/User";
 import swal from "sweetalert2"
 import "./otpComponent.scss"
 import LoadingModal from "../loading/loading";
+import logo from "../../assets/img/AiGAlogowhite.svg"
 interface IProps {
     username: string
 }
@@ -71,7 +72,7 @@ export default function OTPComponent({ username }: IProps): ReactElement {
                     <div className="row mb-5">
                         <div className="col">
                             <div className="otp-image">
-                                <img className="d-xxl-flex justify-content-xxl-center" src="./src/assets/img/AiGAlogowhite.svg" width="135" height="55.8" />
+                                <img className="d-xxl-flex justify-content-xxl-center" src={logo} width="135" height="55.8" />
                             </div>
                         </div>
                     </div>

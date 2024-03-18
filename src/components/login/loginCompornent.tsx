@@ -4,6 +4,7 @@ import swal from "sweetalert2"
 import { signIn } from "../../services/api/aigaService"
 import "./loginComponent.scss"
 import LoadingModal from "../loading/loading"
+import logo from "../../assets/img/AiGAlogowhite.svg"
 
 
 interface IProps {
@@ -66,7 +67,7 @@ function LoginComponent({ sendLogin }: IProps): ReactElement {
           <div className="container">
             <div className="row mb-5">
               <div className="col">
-                <img className="d-xxl-flex justify-content-xxl-center" src="./src/assets/img/AiGAlogowhite.svg" style={{ width: "135px" }} width="135" height="55.8" />
+                <img className="d-xxl-flex justify-content-xxl-center" src={logo} style={{ width: "135px" }} width="135" height="55.8" />
               </div>
             </div>
             <div className="row d-flex justify-content-center" style={{ marginLeft: "-60px", marginRight: "-60px" }}>

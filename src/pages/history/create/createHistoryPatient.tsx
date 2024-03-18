@@ -14,7 +14,7 @@ import { RecordWebcamOptions, useRecordWebcam } from "react-record-webcam"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { IGroupParams, IGroupResponse } from "../../../interfaces/history/group/Group"
 import Select from "react-select"
-
+import logo from "../../assets/img/AiGalogoblack.svg"
 function CreateHistoryPatient(): ReactElement {
     const options: RecordWebcamOptions =
     {
@@ -224,7 +224,7 @@ function CreateHistoryPatient(): ReactElement {
                     <div className="row">
                         <div className="col d-flex justify-content-center video-area">
                             {(recordWebcam.status === 'CLOSED' || recordWebcam.status === 'INIT') && <div className="temp-video-image">
-                                <img width={480} height={360} src="./src/assets/img/AiGalogoblack.svg" />
+                                <img width={480} height={360} src={logo} />
                             </div>}
                             <video
                                 ref={recordWebcam.previewRef}
@@ -358,7 +358,7 @@ function CreateHistoryPatient(): ReactElement {
                     <div className="row">
                         <div className="col d-flex justify-content-center video-area">
                             {!videoSource && <div className="temp-video-image">
-                                <img width={480} height={360} src="./src/assets/img/AiGalogoblack.svg" />
+                                <img width={480} height={360} src={logo} />
                             </div>}
                             {videoSource &&
                                 <video

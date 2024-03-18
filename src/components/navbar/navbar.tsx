@@ -4,6 +4,8 @@ import "./navbar.css"
 import { logoutRef } from "../../services/api/aigaService"
 import { IUserJWT } from "../../interfaces/User"
 import jwtDecode from "jwt-decode"
+import logo from "../../assets/img/AiGalogoblack.svg"
+import hamburger from "../../assets/img/burgerMenu.svg"
 
 const NavBar = (): ReactElement => {
     const navigate = useNavigate()
@@ -44,7 +46,7 @@ const NavBar = (): ReactElement => {
                         <div className="aiga-image">
                             <img
                                 className="d-xxl-flex justify-content-xxl-start align-items-xxl-center"
-                                src="/src/assets/img/AiGAlogoblack.svg"
+                                src={logo}
                                 width="96"
                                 height="55"
                             />
@@ -52,7 +54,7 @@ const NavBar = (): ReactElement => {
                         <div className="menu-icon" onClick={handleShowNavbar}>
                             <img
                                 className="d-xxl-flex justify-content-xxl-start align-items-xxl-center"
-                                src="/src/assets/img/burgerMenu.svg"
+                                src={hamburger}
                                 width="96"
                                 height="55"
                             />

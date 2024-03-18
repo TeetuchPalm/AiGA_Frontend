@@ -4,6 +4,7 @@ import { forgetPassword } from "../../../services/api/aigaService"
 import LoadingModal from "../../../components/loading/loading"
 import swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
+import logo from "../../../assets/img/AiGAlogowhite.svg"
 
 
 
@@ -56,7 +57,7 @@ function RequestResetPassword(): ReactElement {
                 <div className="container">
                     <div className="row mb-5">
                         <div className="col">
-                            <img className="d-xxl-flex justify-content-xxl-center" src="../src/assets/img/AiGAlogowhite.svg" style={{ width: "135px" }} width="135" height="55.8" />
+                            <img className="d-xxl-flex justify-content-xxl-center" src={logo} style={{ width: "135px" }} width="135" height="55.8" />
                         </div>
                     </div>
                     <div className="row d-flex justify-content-center">
