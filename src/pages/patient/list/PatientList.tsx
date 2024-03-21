@@ -306,7 +306,7 @@ function PatientList(): ReactElement {
                   {showDetailFilter()}
                 </div>
                 <div className="create-patient">
-                  <button className="btn btn-light btn-sm create-tag-button" type="button" onClick={() => setIsShowModal(true)}>Create Patient Tag</button>
+                  <button className="btn btn-light btn-sm create-tag-button" type="button" onClick={() => setIsShowModal(true)}>Create patient tag</button>
                   <button className="btn btn-light btn-sm create-button" type="button" onClick={() => navigate('/patient/create')}>Create new Patient</button>
                 </div>
               </div>

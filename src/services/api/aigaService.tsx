@@ -16,8 +16,8 @@ import qs from "qs"
 import { ICheckResetPasswordResponse, IResetPasswordRequest } from "../../interfaces/auth/ResetPassword";
 
 const axiosNoIntercepter = axios.create()
-axiosNoIntercepter.defaults.baseURL = 'http://ec2-13-228-142-11.ap-southeast-1.compute.amazonaws.com:8080/api/aiga'
-axiosWithInterceoter.defaults.baseURL = 'http://ec2-13-228-142-11.ap-southeast-1.compute.amazonaws.com:8080/api/aiga'
+axiosNoIntercepter.defaults.baseURL = 'https://api.aiga-project.site/api/aiga'
+axiosWithInterceoter.defaults.baseURL = 'https://api.aiga-project.site/api/aiga'
 axiosNoIntercepter.defaults.withCredentials = true
 export const signIn = async (request: IUserSignInRequest | undefined): Promise<IUser> => {
     const response: IUserResponse = await axiosNoIntercepter.post("/auth/signin", request)

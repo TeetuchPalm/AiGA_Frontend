@@ -18,6 +18,9 @@
         display: none;
       }
       .modal-video-document-content {
+        @media screen and (max-height: 590px) {
+          top: 5%;
+        }
         overflow-y: auto;
         display: flex;
         position: relative;
@@ -61,6 +64,10 @@
             }
           }
           .video-document-body {
+            @media screen and (max-height: 590px) {
+              height: 300px;
+              max-height: 300px;
+            }
             font-family: "Noto Sans Thai", sans-serif;
             text-align: left;
             .header {

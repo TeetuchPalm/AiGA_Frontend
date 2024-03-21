@@ -59,7 +59,7 @@ function POGSModal({ showModal, isShowModal }: IProps): ReactElement {
                                                 </tr>
                                                 <tr className="table-row">
                                                     <td className="row-data text-center pogs">5</td>
-                                                    <td className="row-data description">Peak Knee Flexion/Heel-Rise in Swing</td>
+                                                    <td className="row-data description">Knee in Terminal Swing and at Initial Contact</td>
                                                     <td className="row-data insterested-phase">Terminal Swing</td>
                                                 </tr>
                                                 <tr className="table-row">

@@ -16,7 +16,7 @@ axiosWithInterceoter.interceptors.response.use(
             originalRequest._retry = true
             try {
                 const refreshToken: string | null = localStorage.getItem('refreshToken')
-                const newToken: IResponse<IRefreshTokenResponse> = await refreshAxios.post('http://13.228.142.11:8080/api/aiga/auth/refreshtoken', { refreshToken: refreshToken })
+                const newToken: IResponse<IRefreshTokenResponse> = await refreshAxios.post('https://api.aiga-project.site/api/aiga/auth/refreshtoken', { refreshToken: refreshToken })
                 localStorage.setItem('token', newToken.data.accessToken)
                 originalRequest.headers.Authorization = `Bearer ${newToken.data.accessToken}`
                 return axios(originalRequest)

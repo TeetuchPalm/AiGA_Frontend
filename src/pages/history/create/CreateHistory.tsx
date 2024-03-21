@@ -202,7 +202,7 @@ function CreateHistory(): ReactElement {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h3 className="text-dark mb-0" style={{ marginTop: "24px", fontWeight: "bold", textAlign: "center" }}>Camera 1 : Front View
+              <h3 className="text-dark mb-0" style={{ marginTop: "24px", fontWeight: "bold", textAlign: "center" }}>Camera : Side View
               </h3>
             </div>
           </div>

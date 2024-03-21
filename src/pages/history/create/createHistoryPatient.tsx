@@ -15,6 +15,7 @@ import { IPageResponse } from "../../../interfaces/paginate/Page"
 import { IGroupParams, IGroupResponse } from "../../../interfaces/history/group/Group"
 import Select from "react-select"
 import logo from "../../../assets/img/AiGalogoblack.svg"
+import VideoDocument from "../../../components/modal/videoDocument/videoDocument"
 function CreateHistoryPatient(): ReactElement {
     const options: RecordWebcamOptions =
     {
@@ -44,11 +45,12 @@ function CreateHistoryPatient(): ReactElement {
     const [selectedGroup, setSelectedGroup] = useState<IReactSelect | null>({
         label: 'default',
         value: '1'
-      })
+    })
     const [isSearch, setIsSearch] = useState<boolean>(false)
     const [isUpload, setIsUpload] = useState<boolean>(false)
     const [videoSource, setVideoSource] = useState<File | null>(null)
     const inputRef = useRef<HTMLInputElement>(null)
+    const [isShowModal, setIsShowModal] = useState<boolean>(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -386,7 +388,7 @@ function CreateHistoryPatient(): ReactElement {
                                 type="file"
                                 accept="video/*"
                             />
-                            <button className="btn btn-primary" style={{ border: '1px', borderColor: 'black' }} onClick={() => inputRef.current?.click()}>Choose File</button>
+                            <button className="btn btn-secondary" style={{ border: '1px', borderColor: 'black' }} onClick={() => inputRef.current?.click()}>Choose File</button>
                             <div>{videoSource?.name || "No selected file"}</div>
                         </div>
                         <div className="col d-xxl-flex justify-content-xxl-center" style={{ marginTop: '10px', marginBottom: '50px' }}>
@@ -419,6 +421,7 @@ function CreateHistoryPatient(): ReactElement {
     return (
         <>
             <div id="createHistoryPatient">
+                <VideoDocument isShowModal={isShowModal} showModal={value => setIsShowModal(value)} />
                 <LoadingModal showLoadingModal={IsLoading} />
                 <div className="container-fluid" style={{ fontFamily: 'Noto Sans Thai, sans-serif' }}>
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
@@ -427,7 +430,10 @@ function CreateHistoryPatient(): ReactElement {
                     <form>
                         <div className="card shadow mb-3">
                             <div className="card-header py-3">
-                                <p className="text-primary m-0 fw-bold">Fill in the fields</p>
+                                <div className="header-wrap">
+                                    <p className="text-primary m-0 fw-bold">Fill in the fields</p>
+                                    <button className="btn btn-secondary" type="button" onClick={() => setIsShowModal(true)}>Video record document</button>
+                                </div>
                             </div>
                             <div className="card-body" style={{ marginBottom: "40px" }}>
                                 <div className="row">

@@ -3,5 +3,5 @@ import axios from "axios";
 
 const modelAxios = axios.create()
 export const createModelData = async (request: IHistoryModelRequest) => {
-    await modelAxios.post("http://ec2-18-143-98-53.ap-southeast-1.compute.amazonaws.com:8001/api/pose/gait_estimate", request)
+    await modelAxios.post("https://model.aiga-project.site/api/pose/gait_estimate", request)
 }

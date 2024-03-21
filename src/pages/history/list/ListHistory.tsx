@@ -362,7 +362,7 @@ function ListHistory(): ReactElement {
                                     {showDetailFilter()}
                                 </div>
                                 <div className="create-history">
-                                    <button className="btn btn-light btn-sm create-group-button" type="button" onClick={() => setIsShowModal(true)}>Create History Group</button>
+                                    <button className="btn btn-light btn-sm create-group-button" type="button" onClick={() => setIsShowModal(true)}>Create history group</button>
                                     <button className="btn btn-light btn-sm create-button" type="button" onClick={() => navigate('/history/create')}>Create new history</button>
                                 </div>
                             </div>

@@ -1,4 +1,8 @@
 #createHistoryPatient {
+  .header-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
   .description-box {
     .description-header {
       float: left;

@@ -53,7 +53,7 @@ function CreateTagModal({ showModal, isShowModal }: IProps): ReactElement {
                         <div className="modal-create-tag-content">
                             <div className="create-tag-content-box">
                                 <div className="create-tag-header">
-                                    <h4>Create Group of History</h4>
+                                    <h4>Create Tag of Patient</h4>
                                     <span className="close close-icon infinity-btn" onClick={() => showModal(false)}>
                                         &times;
                                     </span>
