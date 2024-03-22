@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Noto Sans Thai';
-    src: local('Noto Sans Thai'), url(/src/assets/fonts/NotoSansThai-027f65c87bf9f870ea002c834a05b941.woff2) format('woff2');
+    src: local('Noto Sans Thai'), url(./assets/fonts/NotoSansThai-027f65c87bf9f870ea002c834a05b941.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'Noto Sans Thai';
-    src: local('Noto Sans Thai'), url(/src/assets/fonts/NotoSansThai-93ae1d73a4c9fc4180e3de876f9426ed.woff2) format('woff2');
+    src: local('Noto Sans Thai'), url(./assets/fonts/NotoSansThai-93ae1d73a4c9fc4180e3de876f9426ed.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
     font-family: 'Noto Sans Thai';
-    src: local('Noto Sans Thai'), url(/src/assets/fonts/NotoSansThai-027f65c87bf9f870ea002c834a05b941.woff2) format('woff2');
+    src: local('Noto Sans Thai'), url(./assets/fonts/NotoSansThai-027f65c87bf9f870ea002c834a05b941.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -27,7 +27,7 @@
 
 @font-face {
     font-family: 'Prompt';
-    src: url(/src/assets/fonts/Prompt-c6bdf539c48cbcb2961d0729154dc9e0.woff2) format('woff2');
+    src: url(./assets/fonts/Prompt-c6bdf539c48cbcb2961d0729154dc9e0.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
     font-family: 'Prompt';
-    src: url(/src/assets/fonts/Prompt-ffd2b8aac3dc5ecfc68eadb89142d8d3.woff2) format('woff2');
+    src: url(./assets/fonts/Prompt-ffd2b8aac3dc5ecfc68eadb89142d8d3.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -45,7 +45,7 @@
 
 @font-face {
     font-family: 'Prompt';
-    src: url(/src/assets/fonts/Prompt-7ca31b951b14e0c24e1078f62c2ad02f.woff2) format('woff2');
+    src: url(./assets/fonts/Prompt-7ca31b951b14e0c24e1078f62c2ad02f.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -54,7 +54,7 @@
 
 @font-face {
     font-family: 'Prompt';
-    src: url(/src/assets/fonts/Prompt-aa7b10aa5befa0cb69355c26c4836a40.woff2) format('woff2');
+    src: url(./assets/fonts/Prompt-aa7b10aa5befa0cb69355c26c4836a40.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -63,7 +63,7 @@
 
 @font-face {
     font-family: 'Sarabun';
-    src: url(/src/assets/fonts/Sarabun-1e0950041800a447a0ab301effe2708b.woff2) format('woff2');
+    src: url(./assets/fonts/Sarabun-1e0950041800a447a0ab301effe2708b.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -72,7 +72,7 @@
 
 @font-face {
     font-family: 'Sarabun';
-    src: url(/src/assets/fonts/Sarabun-ff67408cb7b27d0a1751c1c6188b6c26.woff2) format('woff2');
+    src: url(./assets/fonts/Sarabun-ff67408cb7b27d0a1751c1c6188b6c26.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -81,7 +81,7 @@
 
 @font-face {
     font-family: 'Sarabun';
-    src: url(/src/assets/fonts/Sarabun-30d3be5ed5798dd71cfb7a05f05269b8.woff2) format('woff2');
+    src: url(./assets/fonts/Sarabun-30d3be5ed5798dd71cfb7a05f05269b8.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -90,7 +90,7 @@
 
 @font-face {
     font-family: 'Sarabun';
-    src: url(/src/assets/fonts/Sarabun-d6d7149eb9664dfdf9b5abffdc86c399.woff2) format('woff2');
+    src: url(./assets/fonts/Sarabun-d6d7149eb9664dfdf9b5abffdc86c399.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
