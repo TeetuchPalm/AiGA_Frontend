@@ -11,6 +11,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    LineController
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 import "./analyticsHistory.css"
@@ -40,7 +41,8 @@ function AnalyticsHistory(): ReactElement {
         LineElement,
         Title,
         Tooltip,
-        Legend
+        Legend,
+        LineController
     )
 
     useEffect(() => {
