@@ -37,11 +37,11 @@ function PatientListFilter({ filterParams, showFilter, sendParams, isShowFilter,
   }, [tagOptions])
 
   const fetchTag = async () => {
-      const response: IPageResponse<ITagResponse[]> = await getAllPageTag(tagQuery)
-      setTagOptions(tagOptions.concat(response.entities.map(tag => (
-        {
-          label: tag.name, value: tag.id.toString()
-        }))))
+    const response: IPageResponse<ITagResponse[]> = await getAllPageTag(tagQuery)
+    setTagOptions(tagOptions.concat(response.entities.map(tag => (
+      {
+        label: tag.name, value: tag.id.toString()
+      }))))
   }
 
   const formatOptionLabel = (option: IReactSelect): React.JSX.Element => {
@@ -144,11 +144,16 @@ function PatientListFilter({ filterParams, showFilter, sendParams, isShowFilter,
             <input type="text" className="form-control" value={patientparams?.lastname} onChange={(e) => { setPatientparams({ ...patientparams, lastname: e.target.value }) }} />
           </div>
           <div className="filter-box">
-            <label className="form-label">
-              <strong>Select
-                Tag&nbsp;
-              </strong>
-            </label>
+            <div className="wrapper">
+              <label className="form-label">
+                <strong>Select
+                  Tag&nbsp;
+                </strong>
+              </label>
+              <button className="btn btn-light btn-sm clear" onClick={() => {setSelectedTag(null); setPatientparams({ ...patientparams, tags: undefined })}}>
+                Clear
+              </button>
+            </div>
             <Select
               inputId="tag"
               isSearchable={true}

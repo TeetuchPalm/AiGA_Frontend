@@ -71,7 +71,7 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
         }
     }, [patientOptions])
 
-    const fetchData = async() => {
+    const fetchData = async () => {
         await fetchGroup()
         await fetchClinician()
         await getAllPatient()
@@ -187,11 +187,16 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         {showDetailFilter('Groups: ', selectedGroup?.label || historyParams.groups?.toString() || '')}
                     </div>
                     <div className="filter-box">
-                        <label className="form-label">
-                            <strong>Select
-                                Patient&nbsp;
-                            </strong>
-                        </label>
+                        <div className="warpper">
+                            <label className="form-label">
+                                <strong>Select
+                                    Patient&nbsp;
+                                </strong>
+                            </label>
+                            <button className="btn btn-light btn-sm clear" onClick={() => { setSelectedPatient(null); setHistoryParams({ ...historyParams, patient: undefined })}}>
+                                Clear
+                            </button>
+                        </div>
                         <Select
                             inputId="patient"
                             isSearchable={true}
@@ -223,11 +228,16 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         />
                     </div>
                     <div className="filter-box">
-                        <label className="form-label">
-                            <strong>Select
-                                Clinician&nbsp;
-                            </strong>
-                        </label>
+                        <div className="warpper">
+                            <label className="form-label">
+                                <strong>Select
+                                    Clinician&nbsp;
+                                </strong>
+                            </label>
+                            <button className="btn btn-light btn-sm clear" onClick={() => { setSelectedClinician(null); setHistoryParams({ ...historyParams, clinician: undefined }) }}>
+                                Clear
+                            </button>
+                        </div>
                         <Select
                             inputId="clinician"
                             isSearchable={true}
@@ -259,11 +269,17 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         />
                     </div>
                     <div className="filter-box">
-                        <label className="form-label">
-                            <strong>Select
-                                Group&nbsp;
-                            </strong>
-                        </label>
+                        <div className="warpper">
+                            <label className="form-label">
+                                <strong>Select
+                                    Group&nbsp;
+                                </strong>
+
+                            </label>
+                            <button className="btn btn-light btn-sm clear" onClick={() => { setSelectedGroup(null); setHistoryParams({ ...historyParams, groups: undefined }) }}>
+                                Clear
+                            </button>
+                        </div>
                         <Select
                             inputId="group"
                             isSearchable={true}

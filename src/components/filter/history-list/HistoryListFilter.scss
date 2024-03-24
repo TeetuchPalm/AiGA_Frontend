@@ -105,6 +105,15 @@
       .filter-box {
         margin-bottom: 10px;
         font-size: 14px;
+        .warpper {
+          display: flex;
+          justify-content: space-between;
+          .clear {
+            font-size: 10px;
+            width: fit-content;
+            height: fit-content;
+          }
+        }
         .filter-input-box {
           outline: none;
           width: 340px;

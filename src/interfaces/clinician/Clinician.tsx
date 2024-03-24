@@ -15,7 +15,7 @@ export interface IClinicianResponse {
     lastname: string,
     email: string,
     isAvailable: boolean,
-    isOTP: boolean,
+    isOtp: boolean,
     role: string,
     createdAt: Date,
     updatedAt: Date,

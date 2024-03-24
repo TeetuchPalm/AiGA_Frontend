@@ -50,7 +50,7 @@ function POGSModal({ showModal, isShowModal }: IProps): ReactElement {
                                                 <tr className="table-row">
                                                     <td className="row-data text-center pogs">3</td>
                                                     <td className="row-data description">Peak Extension in Stance</td>
-                                                    <td className="row-data insterested-phase">Initial Contract, Loading Response, Mid-Stance, Terminal Stance, Preswing</td>
+                                                    <td className="row-data insterested-phase">Initial Contract, Loading Response, Mid-Stance, Terminal Stance</td>
                                                 </tr>
                                                 <tr className="table-row">
                                                     <td className="row-data text-center pogs">4</td>

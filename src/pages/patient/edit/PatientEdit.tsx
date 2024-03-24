@@ -581,7 +581,7 @@ function PatientEdit(): ReactElement {
                     </div>
                     <div className="text-end d-xxl-flex justify-content-xxl-center mb-3 button-area">
                         <button className="btn btn-primary btn-lg submit-button" disabled={validateSubmitButton()} onClick={() => { editPatientHandle() }}>Save</button>
-                        <a className="btn btn-danger btn-lg cancel-button" role="button" onClick={() => { navigate(`/patient`) }}>Cancel</a>
+                        <button className="btn btn-danger btn-lg cancel-button" role="button" onClick={() => { navigate(`/patient`) }}>Cancel</button>
                     </div>
                 </div>
             </div>

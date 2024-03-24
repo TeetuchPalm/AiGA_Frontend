@@ -386,7 +386,7 @@ function AnalyticsHistory(): ReactElement {
                                     <div ref={tableLeftRef}>
                                         <div className="table-responsive table-box">
                                             <table
-                                                className="table table-striped table tablesorter"
+                                                className="table table tablesorter"
                                                 id="ipi-table"
                                             >
                                                 <thead className="thead-dark">
@@ -416,7 +416,7 @@ function AnalyticsHistory(): ReactElement {
                                         </div>
                                         <div className="table-responsive score6-table">
                                             <table
-                                                className="table table-striped table tablesorter"
+                                                className="table table tablesorter"
                                                 id="ipi-table"
                                             >
                                                 <thead className="thead-dark">
@@ -445,7 +445,7 @@ function AnalyticsHistory(): ReactElement {
                                     <div ref={tableRightRef}>
                                         <div className="table-responsive table-box">
                                             <table
-                                                className="table table-striped table tablesorter"
+                                                className="table table tablesorter"
                                                 id="ipi-table"
                                             >
                                                 <thead className="thead-dark">
@@ -475,7 +475,7 @@ function AnalyticsHistory(): ReactElement {
                                         </div>
                                         <div className="table-responsive score6-table">
                                             <table
-                                                className="table table-striped table tablesorter"
+                                                className="table table tablesorter"
                                                 id="ipi-table"
                                             >
                                                 <thead className="thead-dark">

@@ -135,7 +135,7 @@ function AdminPage(): ReactElement {
                             </div>
                         </td>
                         <td className="text-start">
-                            {item.isOTP ? "Yes" : "No"}
+                            {item.isOtp ? "Yes" : "No"}
                         </td>
                         <td className="text-start">
                             <ReactSwitch onChange={() => { handleOnClickToggle(item.id, item.isAvailable) }} checked={item.isAvailable} disabled={item.username === 'admin'} />
@@ -231,7 +231,7 @@ function AdminPage(): ReactElement {
                             <div className="col-12 row-header-container">
                                 <div className="table-responsive" style={{overflowX: "scroll"}}>
                                     <table
-                                        className="table table-striped table tablesorter"
+                                        className="table table tablesorter"
                                         id="ipi-table"
                                         style={{minWidth: "1317.6px"}}
                                     >
