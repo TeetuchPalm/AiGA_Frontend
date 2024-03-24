@@ -8,7 +8,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import swal from "sweetalert2"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
-import LoadingModal from "../../../components/loading/loading"
 
 
 
