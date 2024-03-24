@@ -39,7 +39,6 @@ function PatientEdit(): ReactElement {
     })
     const [selectedTag, setSelectedTag] = useState<IReactSelect | null>(null)
     const [isSearch, setIsSearch] = useState<boolean>(false)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
         if (isSearch) {
@@ -236,7 +235,6 @@ function PatientEdit(): ReactElement {
 
     return (
         <div id="editPatient">
-            <LoadingModal showLoadingModal={isLoading} />
             <div className="container-fluid">
                 <div className="d-sm-flex justify-content-between align-items-center mb-4">
                     <h3 className="text-dark mb-0">Patient Demographic Data</h3>
