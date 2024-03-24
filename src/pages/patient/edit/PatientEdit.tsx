@@ -200,17 +200,11 @@ function PatientEdit(): ReactElement {
     }
 
     const fetchTag = async () => {
-        try {
-            setIsLoading(true)
-            const response: IPageResponse<ITagResponse[]> = await getAllPageTag(tagQuery)
-            setTagOptions(tagOptions.concat(response.entities.map(tag => (
-                {
-                    label: tag.name, value: tag.id.toString()
-                }))))
-            setIsLoading(false)
-        } catch (e) {
-            setIsLoading(false)
-        }
+        const response: IPageResponse<ITagResponse[]> = await getAllPageTag(tagQuery)
+        setTagOptions(tagOptions.concat(response.entities.map(tag => (
+            {
+                label: tag.name, value: tag.id.toString()
+            }))))
     }
 
     const editPatientHandle = async () => {

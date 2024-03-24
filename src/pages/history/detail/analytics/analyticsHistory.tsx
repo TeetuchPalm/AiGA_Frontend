@@ -440,7 +440,7 @@ function AnalyticsHistory(): ReactElement {
                                 <div className="col">
                                     <div className="mb-3 header-text">
                                         <label className="form-label"><strong>Right Leg Gait Table</strong></label>
-                                        <button className="btn btn-secondary show-modal-button" type="button" onClick={() => setIsShowModal(true)}>Gait Scroe Detail</button>
+                                        <button className="btn btn-secondary show-modal-button" type="button" onClick={() => setIsShowModal(true)}>Gait Score Detail</button>
                                     </div>
                                     <div ref={tableRightRef}>
                                         <div className="table-responsive table-box">

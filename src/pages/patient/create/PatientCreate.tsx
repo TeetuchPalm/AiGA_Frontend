@@ -35,7 +35,10 @@ function PatientCreate(): ReactElement {
         pageNumber: 1,
         pageSize: 20
     })
-    const [selectedTag, setSelectedTag] = useState<IReactSelect | null>(null)
+    const [selectedTag, setSelectedTag] = useState<IReactSelect | null>({
+        label: 'default',
+        value: '1'
+    })
     const [isSearch, setIsSearch] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
