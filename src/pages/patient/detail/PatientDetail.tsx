@@ -101,6 +101,14 @@ function PatientDetail(): ReactElement {
                                         <p>{(patient?.gender ? "Male" : "Female") || ""}</p>
                                     </div>
                                 </div>
+                                <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
+                                    <div className="mb-3"><label className="form-label"><strong>Tag:</strong></label></div>
+                                </div>
+                                <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
+                                    <div className="mb-3">
+                                        <p>{(patient?.tags[0].name) || ""}</p>
+                                    </div>
+                                </div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">

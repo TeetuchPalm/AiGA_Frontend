@@ -73,6 +73,16 @@ function DetailHistory(): ReactElement {
                                     </div>
                                 </div>
                             </div>
+                            <div className="row history-group">
+                                <div className="col-sm-6 col-md-6 col-lg-8 col-xl-5 col-xxl-3">
+                                    <div className="mb-3"><label className="form-label"><strong>Group:</strong></label></div>
+                                </div>
+                                <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-6">
+                                    <div className="mb-3">
+                                        <p>{history?.groups[0].name || ""}</p>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="row history-created-by">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-5 col-xxl-3">
                                     <div className="mb-3"><label className="form-label"><strong>Created by:</strong></label></div>
@@ -160,7 +170,7 @@ function DetailHistory(): ReactElement {
                             </div>
                             <div className="row patient-tag">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-5 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Tags:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Tag:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-7 col-xxl-10">
                                     <div className="mb-3">
