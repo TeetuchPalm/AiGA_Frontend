@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import LoadingModal from "../../../components/loading/loading"
-import ReactDatePicker from "react-datepicker"
+import DatePicker from "react-datepicker"
 import dayjs from "dayjs"
 import utc from 'dayjs/plugin/utc'
 import tz from 'dayjs/plugin/timezone'
@@ -308,7 +308,7 @@ function PatientCreate(): ReactElement {
                                             onBlur={(e) => (e.target.type = "text")}
                                             max={new Date().toISOString().split("T")[0]}
                                             onChange={(e) => { setPatientDOB(new Date(e.target.value)) }} /> */}
-                                        <ReactDatePicker
+                                        <DatePicker
                                             className="form-control"
                                             selected={patientDOB}
                                             onChange={(date) => setPatientDOB(date || undefined)}
