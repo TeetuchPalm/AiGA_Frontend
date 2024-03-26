@@ -37,7 +37,8 @@ export default function OTPComponent({ username }: IProps): ReactElement {
         const otpResponse: IUser = await otpVerify(otp!!, username)
         localStorage.setItem('token', otpResponse.token)
         localStorage.setItem('refreshToken', otpResponse.refreshToken)
-        localStorage.setItem('test', JSON.stringify(otpResponse))
+        localStorage.setItem('user', JSON.stringify(otpResponse))
+        localStorage.setItem('username', otpResponse.username)
         window.location.href = "/patient"
     }
 
@@ -49,7 +50,11 @@ export default function OTPComponent({ username }: IProps): ReactElement {
         try {
             setIsLoading(true)
             await refreshOTP(username)
-            swal.fire('resend OTP Success').then(() => {
+            swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Resend OTP Success'
+            }).then(() => {
                 startCountdown()
                 setIsLoading(false)
             })

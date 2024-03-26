@@ -41,7 +41,7 @@ axiosWithInterceoter.interceptors.response.use(
             const e: HandleError = error as HandleError
             swal.fire({
                 icon: 'error',
-                title: 'Erroe',
+                title: 'Error',
                 text: e.response.data.errorMessage
             }) 
         }

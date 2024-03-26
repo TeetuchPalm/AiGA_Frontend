@@ -1,4 +1,7 @@
 #patientDetail {
+    .button-page {
+        margin-top: 10px;
+    }
     .patient-detail {
         font-family: 'Noto Sans Thai', sans-serif;
         .patient-header {

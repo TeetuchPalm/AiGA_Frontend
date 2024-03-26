@@ -66,10 +66,13 @@ function CreateHistoryPatient(): ReactElement {
             }
         }
         fetchGroup()
-        return () => {
-            recordWebcam.close
-        }
     }, [])
+
+    useEffect(() => {
+        return () => {
+          recordWebcam.close()
+        }
+      }, [])
 
     useEffect(() => {
         if (isSearch) {
@@ -197,7 +200,7 @@ function CreateHistoryPatient(): ReactElement {
                         <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                             <div className="mb-3">
                                 <label className="form-label" style={{ marginRight: "16px" }}>
-                                    <strong>Tags</strong>
+                                    <strong>Tag</strong>
                                 </label>
                                 {rederGroupList(patientInfo.tags)}
                             </div>
@@ -217,7 +220,7 @@ function CreateHistoryPatient(): ReactElement {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <h3 className="text-dark mb-0" style={{ marginTop: "24px", fontWeight: "bold", textAlign: "center" }}>Camera 1 : Front View
+                            <h3 className="text-dark mb-0" style={{ marginTop: "24px", fontWeight: "bold", textAlign: "center" }}>Camera 1 : Side View
                             </h3>
                         </div>
                     </div>
@@ -380,7 +383,7 @@ function CreateHistoryPatient(): ReactElement {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-xxl-12 status-area">
-                            <p className="status-text" >Insert your video file</p>
+                            <p className="status-text" >Insert Your Video File</p>
                             <input
                                 ref={inputRef}
                                 style={{ display: 'none' }}
@@ -431,7 +434,7 @@ function CreateHistoryPatient(): ReactElement {
                         <div className="card shadow mb-3">
                             <div className="card-header py-3">
                                 <div className="header-wrap">
-                                    <p className="text-primary m-0 fw-bold">Fill in the fields</p>
+                                    <p className="text-primary m-0 fw-bold">Fill In The Fields</p>
                                     <button className="btn btn-secondary" type="button" onClick={() => setIsShowModal(true)}>Video record document</button>
                                 </div>
                             </div>
@@ -482,7 +485,7 @@ function CreateHistoryPatient(): ReactElement {
                                                 value={selectedGroup}
                                             /></div>
                                         <div className="mb-3 upload-toggle">
-                                            <label className="form-label"><strong>Select your video source</strong></label>
+                                            <label className="form-label"><strong>Select Your Video Source</strong></label>
                                             <div>
                                                 <button className="btn btn-light button-is-upload" onClick={(e) => { handleChangeIsUpload(e, false) }}>Camera</button>
                                                 <button className="btn btn-light button-is-upload" onClick={(e) => { handleChangeIsUpload(e, true) }}>Upload</button>

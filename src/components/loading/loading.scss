@@ -4,8 +4,8 @@
   left: 0;
   #LoaderModal {
     .modal-loader-window {
-      padding: 0 5px;
       z-index: 10;
+      padding: 0 5px;
       position: fixed;
       background-color: rgb(0, 0, 0);
       background-color: rgba(0, 0, 0, 0.4);
@@ -19,11 +19,12 @@
       }
     }
     .modal-content {
+      z-index: 10;
       background-color: #313132;
       margin: auto;
       max-width: 300px;
       padding: 20px;
-      border: 1px solid #888;
+      border: 1px solid #313132;
       width: 20%;
       align-items: center;
       .spinner {
@@ -50,7 +51,7 @@
         div {
           width: 20px;
           height: 20px;
-          background-color: #0d6efd;
+          background-color: white;
           border-radius: 100%;
           display: inline-block;
           -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;

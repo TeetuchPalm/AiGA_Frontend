@@ -45,6 +45,7 @@ function PatientDetail(): ReactElement {
         <div id="patientDetail">
             <LoadingModal showLoadingModal={isLoading} />
             <div className="container-fluid patient-detail">
+            <button className="btn btn-secondary button-page" type="button" onClick={() => navigate("/patient")}>Back</button>
                 <div className="d-sm-flex justify-content-between align-items-center mb-4"></div>
                 <form>
                     <div className="card shadow mb-3">
@@ -153,7 +154,7 @@ function PatientDetail(): ReactElement {
                             <hr style={{ marginBottom: "32px" }} />
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Amputated leg:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Amputated Leg:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -163,7 +164,7 @@ function PatientDetail(): ReactElement {
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb length:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Length:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -172,7 +173,7 @@ function PatientDetail(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb shape:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Shape:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -182,7 +183,7 @@ function PatientDetail(): ReactElement {
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Functional level:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Functional Level:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -192,7 +193,7 @@ function PatientDetail(): ReactElement {
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Underlying disease:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Underlying Disease:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -202,7 +203,7 @@ function PatientDetail(): ReactElement {
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Range of motion:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Range of Motion:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">
@@ -210,7 +211,7 @@ function PatientDetail(): ReactElement {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-2">
-                                    <div className="mb-3"><label className="form-label"><strong>Muscle strength:</strong></label></div>
+                                    <div className="mb-3"><label className="form-label"><strong>Muscle Strength:</strong></label></div>
                                 </div>
                                 <div className="col-sm-6 col-md-6 col-lg-8 col-xl-6 col-xxl-4">
                                     <div className="mb-3">

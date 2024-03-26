@@ -77,13 +77,13 @@ function AnalyticsHistory(): ReactElement {
             y: {
                 title: {
                     display: true,
-                    text: 'angle'
+                    text: 'Angle'
                 },
             },
             x: {
                 title: {
                     display: true,
-                    text: 'frame'
+                    text: 'Frame'
                 },
                 offset: true,
             },
@@ -118,13 +118,13 @@ function AnalyticsHistory(): ReactElement {
             y: {
                 title: {
                     display: true,
-                    text: 'angle'
+                    text: 'Angle'
                 }
             },
             x: {
                 title: {
                     display: true,
-                    text: 'frame'
+                    text: 'Frame'
                 },
                 offset: true,
             }
@@ -448,7 +448,7 @@ function AnalyticsHistory(): ReactElement {
                                                 className="table table tablesorter"
                                                 id="ipi-table"
                                             >
-                                                <thead className="thead-dark">
+                                                <thead className="thead-dark thead-color">
                                                     <tr>
                                                         <th className="text-capitalize text-start">
                                                             Gait phase   /   Score

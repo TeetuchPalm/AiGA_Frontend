@@ -125,7 +125,7 @@ function ResetPassword(): ReactElement {
                                             <div className="text-label">
                                                 <label>Password</label>
                                                 {!passCheck && <div className="req-input">
-                                                    <div className="req-text">up to 8 character with number</div>
+                                                    <div className="req-text">Need up to 8 character with number</div>
                                                 </div>}
                                             </div>
                                             <input className="form-control form-control-user" type="password" name="password" placeholder="Password" style={{ borderColor: !passCheck ? "red" : "var(--bs-border-color)" }} onChange={(e) => { setPassword(e.target.value) }} />
@@ -134,7 +134,7 @@ function ResetPassword(): ReactElement {
                                             <div className="text-label">
                                                 <label>Confirm Password</label>
                                                 {!rePassCheck && <div className="req-Input">
-                                                    <div className="req-text">Re-Password Not match</div>
+                                                    <div className="req-text">Confirm password not match</div>
                                                 </div>}
                                             </div>
                                             <input className="form-control form-control-user" style={{ borderColor: !rePassCheck ? "red" : "var(--bs-border-color)" }} type="password" onChange={(e) => setRepassword(e.target.value)}

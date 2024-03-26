@@ -90,7 +90,7 @@ function RequestResetPassword(): ReactElement {
                                             <button className="btn btn-secondary d-block w-100" style={{marginTop: "5px"}} onClick={() => navigate('/login')}>Back</button>
                                         </div>
                                     </div>
-                                    <p className="text-center">Don't have an account? {<a href={"/register"}>Sign up</a>}</p>
+                                    <p className="text-center">Don't have an account? {<a href={"/register"}>Sign Up</a>}</p>
                                 </div>
                             </div>
                         </div>

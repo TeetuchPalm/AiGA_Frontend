@@ -273,16 +273,16 @@ function AdminPage(): ReactElement {
                                                     Role
                                                 </th>
                                                 <th className="text-capitalize text-start table-colum ">
-                                                    Created at
+                                                    Created At
                                                 </th>
                                                 <th className="text-capitalize text-start table-colum">
-                                                    Updated at
+                                                    Updated At
                                                 </th>
                                                 <th className="text-capitalize text-start table-colum">
                                                     2FA-Enable?
                                                 </th>
                                                 <th className="text-capitalize text-start table-colum">
-                                                    is-Available?
+                                                    Is-Available?
                                                 </th>
                                             </tr>
                                         </thead>

@@ -65,13 +65,13 @@ function AnalyticsHistoryResearcher(): ReactElement {
             y: {
                 title: {
                     display: true,
-                    text: 'angle'
+                    text: 'Angle'
                 }
             },
             x: {
                 title: {
                     display: true,
-                    text: 'frame'
+                    text: 'Frame'
                 }
             }
         }
@@ -104,13 +104,13 @@ function AnalyticsHistoryResearcher(): ReactElement {
             y: {
                 title: {
                     display: true,
-                    text: 'angle'
+                    text: 'Angle'
                 }
             },
             x: {
                 title: {
                     display: true,
-                    text: 'frame'
+                    text: 'Frame'
                 }
             }
         }

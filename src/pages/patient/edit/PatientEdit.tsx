@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import swal from "sweetalert2"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
+import ReactDatePicker from "react-datepicker"
 
 
 
@@ -160,6 +161,7 @@ function PatientEdit(): ReactElement {
     }
 
     const mapStateToCreatePatientRequest = (): IPatientRequest => {
+        console.log(patientDOB)
         const request: IPatientRequest = {
             firstname: patientName!!,
             lastname: patientSurname!!,
@@ -181,13 +183,14 @@ function PatientEdit(): ReactElement {
             prosthesisFoot: selectedFoot?.value!!,
             tagIds: [Number(selectedTag?.value!!)]
         }
+        console.log(request.dob)
         return request
     }
 
     const validateSubmitButton = (): boolean => {
-        return !!!patientName || !!!patientSurname || patientGender === null || !!!patientDOB || !!!patientWeight
+        return !!!patientName || !!!patientSurname || patientGender === null || patientGender === undefined || !!!patientDOB || !!!patientWeight
             || !!!patientHeight || !!!amputatedLeg || !!!selectedResidualLimbLength || !!!selectedResidualLimbShape || !!!selectedFunctionLevel
-            || rangeOfMotion === null || muscleStrength === null || !!!selectedStructure || !!!selectedStructure
+            || rangeOfMotion === null || rangeOfMotion === undefined || muscleStrength === null || muscleStrength === undefined || !!!selectedStructure || !!!selectedStructure
             || !!!selectedSocket || !!!selectedLiner || !!!selectedSuspension || !!!selectedFoot || !!!selectedTag
     }
 
@@ -241,7 +244,7 @@ function PatientEdit(): ReactElement {
                 <div className="form-data">
                     <div className="card shadow mb-3">
                         <div className="card-header py-3">
-                            <p className="m-0 fw-bold">Fill in the required fields <span>*</span></p>
+                            <p className="m-0 fw-bold">Fill In The Required Fields <span>*</span></p>
                         </div>
                         <div className="card-body">
                             <div className="part-header">
@@ -323,20 +326,21 @@ function PatientEdit(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Date of Birth <span>*</span></strong></label>
-                                        <input
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3 date-picker"><label className="form-label"><strong>Date of Birth <span>*</span></strong></label>
+                                    <ReactDatePicker
                                             className="form-control"
-                                            type="date"
-                                            name="DOB"
-                                            max={new Date().toISOString().split("T")[0]}
-                                            onChange={(e) => {
-                                                setPatientDOB(new Date(e.target.value))
-                                            }}
-                                            value={patientDOB?.toISOString().split("T")[0]} />
+                                            selected={patientDOB}
+                                            onChange={(date) => setPatientDOB(date || undefined)}
+                                            placeholderText="dd/MM/yyyy"
+                                            dateFormat={'dd/MM/yyyy'}
+                                            showYearDropdown
+                                            dropdownMode="select"
+                                            maxDate={new Date()} 
+                                            fixedHeight />
                                     </div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Age (years) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -350,7 +354,7 @@ function PatientEdit(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Weight (kg) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -365,7 +369,7 @@ function PatientEdit(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Height (cm) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -385,7 +389,7 @@ function PatientEdit(): ReactElement {
                             <div className="part-header">
                                 <p className="m-0 fw-bold label-header">Part: 2 Medical Information</p>
                             </div>
-                            <div className="mb-3"><label className="form-label"><strong>Amputated leg <span>*</span></strong></label>
+                            <div className="mb-3"><label className="form-label"><strong>Amputated Leg <span>*</span></strong></label>
                                 <div className="form-group mb-3">
                                     <div className="form-check">
                                         <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="amputatedLegOption" checked={amputatedLeg === 'LEFT' || false} value="LEFT" onChange={(e) => setAmputatedLeg(e.target.value)} />
@@ -402,8 +406,8 @@ function PatientEdit(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb length&nbsp;<span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Length&nbsp;<span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbLength"
                                             isSearchable={true}
@@ -416,8 +420,8 @@ function PatientEdit(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb shape&nbsp;<span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Shape&nbsp;<span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbShape"
                                             isSearchable={true}
@@ -432,8 +436,8 @@ function PatientEdit(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Functional level <span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Functional Level <span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbShape"
                                             isSearchable={true}
@@ -446,7 +450,7 @@ function PatientEdit(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col"><label className="form-label"><strong>Underlying disease (Optional)</strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6"><label className="form-label"><strong>Underlying Disease (Optional)</strong></label>
                                     <input
                                         type="text"
                                         name="underlyingDisease"
@@ -460,8 +464,8 @@ function PatientEdit(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Range of motion <span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Range of Motion <span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" checked={rangeOfMotion || false} name="rangeOfMotionOption" onChange={() => { setRangeOfMotion(true) }} />
@@ -472,8 +476,8 @@ function PatientEdit(): ReactElement {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Muscle strength <span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Muscle Strength <span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" checked={muscleStrength || false} name="muscleStrengthOption" onChange={() => { setMuscleStrength(true) }} />

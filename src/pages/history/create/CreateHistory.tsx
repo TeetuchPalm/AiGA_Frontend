@@ -61,8 +61,11 @@ function CreateHistory(): ReactElement {
 
   useEffect(() => {
     fetchGroup()
+  }, [])
+
+  useEffect(() => {
     return () => {
-      recordWebcam.close
+      recordWebcam.close()
     }
   }, [])
 
@@ -182,7 +185,7 @@ function CreateHistory(): ReactElement {
             <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
               <div className="mb-3">
                 <label className="form-label" style={{ marginRight: "16px" }}>
-                  <strong>Tags</strong>
+                  <strong>Tag</strong>
                 </label>
                 {renderGroupList(patientInfo.tags)}
               </div>
@@ -365,7 +368,7 @@ function CreateHistory(): ReactElement {
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-xxl-12 status-area">
-              <p className="status-text" >Insert your video file</p>
+              <p className="status-text" >Insert Your Video File</p>
               <input
                 ref={inputRef}
                 style={{ display: 'none' }}
@@ -412,8 +415,8 @@ function CreateHistory(): ReactElement {
             <div className="card shadow mb-3">
               <div className="card-header py-3">
                 <div className="header-wrap">
-                  <p className="text-primary m-0 fw-bold">Fill in the fields</p>
-                  <button className="btn btn-secondary" type="button" onClick={() => setIsShowModal(true)}>Video record document</button>
+                  <p className="text-primary m-0 fw-bold">Fill In The Fields</p>
+                  <button className="btn btn-secondary" type="button" onClick={() => setIsShowModal(true)}>Video Record Document</button>
                 </div>
               </div>
               <div className="card-body" style={{ marginBottom: "40px" }}>
@@ -464,7 +467,7 @@ function CreateHistory(): ReactElement {
                         value={selectedGroup}
                       /></div>
                     <div className="mb-3 upload-toggle">
-                      <label className="form-label"><strong>Select your video source</strong></label>
+                      <label className="form-label"><strong>Select Your Video Source</strong></label>
                       <div>
                         <button className="btn btn-secondary button-is-upload" type="button" onClick={() => setIsUpload(false)}>Camera</button>
                         <button className="btn btn-secondary button-is-upload" type="button" onClick={() => setIsUpload(true)}>Upload</button>

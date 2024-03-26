@@ -32,7 +32,7 @@ function POGSModal({ showModal, isShowModal }: IProps): ReactElement {
                                                         POGS
                                                     </th>
                                                     <th id="interestedPhase" className="row-table-thead">
-                                                        Interested phase
+                                                        Interested Phase
                                                     </th>
                                                 </tr>
                                             </thead>

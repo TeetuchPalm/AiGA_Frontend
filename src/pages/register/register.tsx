@@ -158,15 +158,15 @@ function Register(): ReactElement {
                       <div className="password-label">
                         <label>Password</label>
                         {!passCheck && <div className="req-password">
-                          <div className="req-password-text">up to 8 character with number</div>
+                          <div className="req-password-text">Need up to 8 character with number</div>
                         </div>}
                       </div>
                       <input className="form-control form-control-user" type="password" name="password" placeholder="Password" style={{ borderColor: !passCheck ? "red" : "var(--bs-border-color)" }} onChange={(e) => { setPassword(e.target.value); setUserSignUpRequest({ ...userSignUpRequest, password: e.target.value }) }} /></div>
                     <div className="col-sm-6">
                       <div className="rePassword-label">
-                        <label>Re-Password</label>
+                        <label>Confirm Password</label>
                         {!rePassCheck && <div className="req-rePassword">
-                          <div className="req-rePassword-text">Re-Password Not match</div>
+                          <div className="req-rePassword-text">Confirm password not match</div>
                         </div>}
                       </div>
                       <input className="form-control form-control-user" style={{ borderColor: !rePassCheck ? "red" : "var(--bs-border-color)" }} type="password" onChange={(e) => setRepassword(e.target.value)}
@@ -190,10 +190,10 @@ function Register(): ReactElement {
                   <div className="mb-3">
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" defaultChecked={userSignUpRequest.isOTP} onChange={() => setUserSignUpRequest({ ...userSignUpRequest, isOTP: !userSignUpRequest.isOTP })} />
-                      <label className="form-check-label">Want to use 2 Factor Authentication</label>
+                      <label className="form-check-label">Require to use 2 factor authentication ?</label>
                     </div>
                   </div>
-                  <button className="btn btn-primary d-block btn-user w-100" id="submitBtn" disabled={validateSubmitBtn()} onClick={handleSubmit}>Create an Account</button>
+                  <button className="btn btn-primary d-block btn-user w-100" id="submitBtn" disabled={validateSubmitBtn()} onClick={handleSubmit}>Create an account</button>
                   <p className="text-center" style={{ marginTop: '5px' }}>Already have an account? {<a href={"/login"}>Login in</a>}</p>
                 </div>
               </div>

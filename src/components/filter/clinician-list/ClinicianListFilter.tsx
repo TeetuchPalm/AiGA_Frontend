@@ -74,7 +74,7 @@ function ClincianListFilter({ filterParams, showFilter, sendParams, isShowFilter
                         <div id="filterHeaderText">
                             <div className="filter-text">Filter</div>
                             <div className="clear-text infinity-btn" onClick={() => clearFilter()}>
-                                Clear all
+                                Clear All
                             </div>
                         </div>
                         <div id="closeHeaderBox">
@@ -119,7 +119,7 @@ function ClincianListFilter({ filterParams, showFilter, sendParams, isShowFilter
                             <input className="form-check-input" type="checkbox" defaultChecked={clinicianParams.isOTP} onChange={() => setClinicianParams({ ...clinicianParams, isOTP: !clinicianParams.isOTP })} />
                             <label className="form-label checkbox-label">
                                 <strong>
-                                    is OTP?&nbsp;
+                                    Is OTP?&nbsp;
                                 </strong>
                             </label>
                         </div>
@@ -127,7 +127,7 @@ function ClincianListFilter({ filterParams, showFilter, sendParams, isShowFilter
                             <input className="form-check-input" type="checkbox" defaultChecked={clinicianParams.isAvailable} onChange={() => setClinicianParams({ ...clinicianParams, isOTP: !clinicianParams.isAvailable })} />
                             <label className="form-label checkbox-label">
                                 <strong>
-                                    is Available&nbsp;
+                                    Is Available&nbsp;
                                 </strong>
                             </label>
                         </div>

@@ -31,7 +31,8 @@ function LoginComponent({ sendLogin }: IProps): ReactElement {
       } else {
         localStorage.setItem('token', response.token)
         localStorage.setItem('refreshToken', response.refreshToken)
-        localStorage.setItem('test', JSON.stringify(response))
+        localStorage.setItem('user', JSON.stringify(response))
+        localStorage.setItem('username', response.username)
         window.location.href = "/patient"
       }
     } catch (error: any) {
@@ -53,7 +54,7 @@ function LoginComponent({ sendLogin }: IProps): ReactElement {
         swal.fire({
           icon: 'error',
           title: 'Failed',
-          text: error.code,
+          text: error.response.data.errorMessage.split('.')[0],
         })
       }
     }
@@ -87,7 +88,7 @@ function LoginComponent({ sendLogin }: IProps): ReactElement {
                       <div className="mb-3">
                         <div className="password-label">
                           <p className="text-start" style={{ textAlign: "center", marginTop: "0px", marginBottom: "0px" }}>Password</p>
-                          <p className="text-start forget-password" style={{ textAlign: "center", marginTop: "0px", marginBottom: "0px" }}>{<a href={"/forget/password"}>forget password?</a>}</p>
+                          <p className="text-start forget-password" style={{ textAlign: "center", marginTop: "0px", marginBottom: "0px" }}>{<a href={"/forget/password"}>Forget Password?</a>}</p>
                         </div>
                         <input className="form-control" type="password" placeholder="password" onChange={e => { setSingInRequest({ ...singInRequest, password: e.target.value }); setInvalidPassword(false) }} style={{ borderColor: invalidPassword ? "red" : "inherit" }} />
                       </div>
@@ -95,7 +96,7 @@ function LoginComponent({ sendLogin }: IProps): ReactElement {
                         <button className="btn btn-primary d-block w-100" type="submit" onClick={handleSubmit}>Login</button>
                         </div>
                     </form>
-                    <p className="text-center">Don't have an account? {<a href={"/register"}>Sign up</a>}</p>
+                    <p className="text-center">Don't have an account? {<a href={"/register"}>Sign Up</a>}</p>
                   </div>
                 </div>
               </div>

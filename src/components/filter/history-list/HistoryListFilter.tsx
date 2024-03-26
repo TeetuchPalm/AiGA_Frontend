@@ -170,7 +170,7 @@ function HistoryListFilter({ filterParams, showFilter, sendParams, isShowFilter,
                         <div id="filterHeaderText">
                             <div className="filter-text">Filter</div>
                             <div className="clear-text infinity-btn" onClick={() => clearFilter()}>
-                                Clear all
+                                Clear All
                             </div>
                         </div>
                         <div id="closeHeaderBox">

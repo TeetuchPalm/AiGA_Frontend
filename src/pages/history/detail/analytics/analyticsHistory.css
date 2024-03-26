@@ -55,7 +55,11 @@
                 table {
                     width: 718px;
                     height: 300px;
+                    th {
+                        background-color: #f1f1f1;
+                    }
                 }
+
 
                 .table-row.red {
                     background-color: #ff6a6e;
@@ -81,6 +85,9 @@
                 table {
                     max-width: 718px;
                     height: auto;
+                    th {
+                        background-color: #f1f1f1;
+                    }
                 }
 
                 .table-row.red {

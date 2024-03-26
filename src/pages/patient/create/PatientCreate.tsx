@@ -8,6 +8,11 @@ import { useNavigate } from "react-router-dom"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import LoadingModal from "../../../components/loading/loading"
+import ReactDatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+import dayjs from "dayjs"
+import utc from 'dayjs/plugin/utc'
+import tz from 'dayjs/plugin/timezone'
 
 
 
@@ -56,15 +61,15 @@ function PatientCreate(): ReactElement {
     }, [])
 
     const residualLimbLengthOption: Array<IReactSelect> = [
-        { label: 'Long stump length', value: '2' },
-        { label: 'Medium stump length', value: '1' },
-        { label: 'Short stump length', value: '0' }
+        { label: 'Long Stump Length', value: '2' },
+        { label: 'Medium Stump Length', value: '1' },
+        { label: 'Short Stump Length', value: '0' }
     ]
 
     const residualLimbShapeOption: Array<IReactSelect> = [
-        { label: 'Conical shape', value: 'Conical shape' },
-        { label: 'Cylindrical shape', value: 'Cylindrical shape' },
-        { label: 'Bulbous shape', value: 'Bulbous shape' }
+        { label: 'Conical Shape', value: 'Conical shape' },
+        { label: 'Cylindrical Shape', value: 'Cylindrical shape' },
+        { label: 'Bulbous Shape', value: 'Bulbous shape' }
     ]
 
     const functionLevelOptions: Array<IReactSelect> = [
@@ -78,7 +83,7 @@ function PatientCreate(): ReactElement {
     const structure: Array<IReactSelect> = [
         { label: 'Exoskeletal', value: 'EXOSKELETAL' },
         { label: 'Endoskeletal', value: 'ENDOSKELETAL' },
-        { label: 'Other structure', value: 'OTHER' }
+        { label: 'Other Structure', value: 'OTHER' }
     ]
 
     const socket: Array<IReactSelect> = [
@@ -88,7 +93,7 @@ function PatientCreate(): ReactElement {
         { label: 'TSB', value: 'TSB' },
         { label: 'TSB-SC', value: 'TSB-SC' },
         { label: 'TSB-SCSP', value: 'TSB-SCSP' },
-        { label: 'Other socket', value: 'OTHER' }
+        { label: 'Other Socket', value: 'OTHER' }
     ]
 
     const liner: Array<IReactSelect> = [
@@ -98,7 +103,7 @@ function PatientCreate(): ReactElement {
         { label: 'Gel Liner', value: 'GEL' },
         { label: 'Polyrethane Liner', value: 'POLYURETHANE' },
         { label: 'TPE Liner', value: 'TPE' },
-        { label: 'Other liner', value: 'OTHER' }
+        { label: 'Other Liner', value: 'OTHER' }
     ]
 
     const suspension: Array<IReactSelect> = [
@@ -109,7 +114,7 @@ function PatientCreate(): ReactElement {
         { label: 'Locking-liner', value: 'LOCKING-LINER' },
         { label: 'Sleeve', value: 'SLEEVE' },
         { label: 'Suction', value: 'SUCTION' },
-        { label: 'Other suspension', value: 'OTHER' }
+        { label: 'Other Suspension', value: 'OTHER' }
     ]
 
     const foot: Array<IReactSelect> = [
@@ -118,7 +123,7 @@ function PatientCreate(): ReactElement {
         { label: 'Multiaxial foot', value: 'MULTIAXIAL' },
         { label: 'Flexible keel foot', value: 'FLEXIBLE-KEEL' },
         { label: 'Dynamic-response foot', value: 'DYNAMIC-RESPONSE' },
-        { label: 'Other foot', value: 'OTHER' }
+        { label: 'Other Foot', value: 'OTHER' }
     ]
 
     const formatOptionLabel = (option: IReactSelect): React.JSX.Element => {
@@ -130,11 +135,13 @@ function PatientCreate(): ReactElement {
     }
 
     const mapStateToCreatePatientRequest = (): IPatientRequest => {
+        dayjs.extend(utc)
+        dayjs.extend(tz)
         const request: IPatientRequest = {
             firstname: patientName!!,
             lastname: patientSurname!!,
             gender: patientGender!!,
-            dob: patientDOB!!,
+            dob: new Date(dayjs(patientDOB!!).tz('UTC', true).toDate()),
             weight: patientWeight!!,
             height: patientHeight!!,
             amputatedLeg: amputatedLeg!!,
@@ -155,9 +162,9 @@ function PatientCreate(): ReactElement {
     }
 
     const validateSubmitButton = (): boolean => {
-        return !!!patientName || !!!patientSurname || !!!patientGender || !!!patientDOB || !!!patientWeight
+        return !!!patientName || !!!patientSurname || patientGender === null || patientGender === undefined || !!!patientDOB || !!!patientWeight
             || !!!patientHeight || !!!amputatedLeg || !!!selectedResidualLimbLength || !!!selectedResidualLimbShape || !!!selectedFunctionLevel
-            || rangeOfMotion === null || muscleStrength === null || !!!selectedStructure || !!!selectedStructure
+            || rangeOfMotion === null || rangeOfMotion === undefined || muscleStrength === null || muscleStrength === undefined || !!!selectedStructure || !!!selectedStructure
             || !!!selectedSocket || !!!selectedLiner || !!!selectedSuspension || !!!selectedFoot || !!!selectedTag
     }
 
@@ -208,7 +215,7 @@ function PatientCreate(): ReactElement {
                 <div className="form-data">
                     <div className="card shadow mb-3">
                         <div className="card-header py-3">
-                            <p className="m-0 fw-bold">Fill in the required fields <span>*</span></p>
+                            <p className="m-0 fw-bold">Fill In The Required Fields <span>*</span></p>
                         </div>
                         <div className="card-body">
                             <div className="part-header">
@@ -291,17 +298,30 @@ function PatientCreate(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Date of Birth <span>*</span></strong></label>
-                                        <input
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3 date-picker"><label className="form-label"><strong>Date of Birth <span>*</span></strong></label>
+                                        {/* <input
                                             className="form-control"
                                             type="date"
                                             name="DOB"
+                                            placeholder="dd-mm-yyyy"
+                                            onFocus={(e) => (e.target.type = "date")}
+                                            onBlur={(e) => (e.target.type = "text")}
                                             max={new Date().toISOString().split("T")[0]}
-                                            onChange={(e) => { setPatientDOB(new Date(e.target.value)) }} />
+                                            onChange={(e) => { setPatientDOB(new Date(e.target.value)) }} /> */}
+                                        <ReactDatePicker
+                                            className="form-control"
+                                            selected={patientDOB}
+                                            onChange={(date) => setPatientDOB(date || undefined)}
+                                            placeholderText="dd/MM/yyyy"
+                                            dateFormat={'dd/MM/yyyy'}
+                                            showYearDropdown
+                                            dropdownMode="select"
+                                            maxDate={new Date()}
+                                            fixedHeight />
                                     </div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Age (years) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -315,7 +335,7 @@ function PatientCreate(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Weight (kg) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -330,7 +350,7 @@ function PatientCreate(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col">
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3"><label className="form-label"><strong>Height (cm) <span>*</span></strong></label>
                                         <input
                                             type="text"
@@ -350,7 +370,7 @@ function PatientCreate(): ReactElement {
                             <div className="part-header">
                                 <p className="m-0 fw-bold label-header">Part: 2 Medical Information</p>
                             </div>
-                            <div className="mb-3"><label className="form-label"><strong>Amputated leg <span>*</span></strong></label>
+                            <div className="mb-3"><label className="form-label"><strong>Amputated Leg <span>*</span></strong></label>
                                 <div className="form-group mb-3">
                                     <div className="form-check">
                                         <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="amputatedLegOption" value="LEFT" onChange={(e) => setAmputatedLeg(e.target.value)} />
@@ -367,8 +387,8 @@ function PatientCreate(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb length&nbsp;<span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Length&nbsp;<span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbLength"
                                             isSearchable={true}
@@ -381,8 +401,8 @@ function PatientCreate(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Residual limb shape&nbsp;<span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Residual Limb Shape&nbsp;<span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbShape"
                                             isSearchable={true}
@@ -397,8 +417,8 @@ function PatientCreate(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Functional level <span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Functional Level <span>*</span></strong></label>
                                         <Select
                                             inputId="residualLimbShape"
                                             isSearchable={true}
@@ -411,7 +431,7 @@ function PatientCreate(): ReactElement {
                                         />
                                     </div>
                                 </div>
-                                <div className="col"><label className="form-label"><strong>Underlying disease (Optional)</strong></label>
+                                <div className="col"><label className="form-label"><strong>Underlying Disease (Optional)</strong></label>
                                     <input
                                         type="text"
                                         name="underlyingDisease"
@@ -425,8 +445,8 @@ function PatientCreate(): ReactElement {
                                 </div>
                             </div>
                             <div className="row mb-2">
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Lower limb range of motion is normally<span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Lower Limb Range of Motion is normally<span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="rangeOfMotionOption" onChange={() => { setRangeOfMotion(true) }} />
@@ -437,8 +457,8 @@ function PatientCreate(): ReactElement {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col">
-                                    <div className="mb-3"><label className="form-label"><strong>Lower limb Muscle strength level is between 4-5 (ฺBased on Oxford scale) <span>*</span></strong></label>
+                                <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+                                    <div className="mb-3"><label className="form-label"><strong>Lower Limb Muscle Strength level is between 4-5 (ฺBased on Oxford scale) <span>*</span></strong></label>
                                         <div className="form-group mb-3">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="radio" id="id_service_payment_validated-3" name="muscleStrengthOption" onChange={() => { setMuscleStrength(true) }} />

@@ -124,7 +124,7 @@ function DetailHistory(): ReactElement {
                         <div className="card-header py-3">
                             <div className="row">
                                 <div className="col-10 col-sm-8 col-md-8 col-lg-8 col-xxl-7 d-xxl-flex">
-                                    <h3 className="text-dark mb-0" style={{ marginTop: "-2px" }}>Patient Imformation</h3>
+                                    <h3 className="text-dark mb-0" style={{ marginTop: "-2px" }}>Patient Information</h3>
                                 </div>
                                 <div className="col-1 col-sm-2 col-md-3 col-lg-3 col-xl-3 col-xxl-4 d-xxl-flex">
                                     <div></div>
