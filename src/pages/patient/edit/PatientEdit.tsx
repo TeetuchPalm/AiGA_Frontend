@@ -161,7 +161,6 @@ function PatientEdit(): ReactElement {
     }
 
     const mapStateToCreatePatientRequest = (): IPatientRequest => {
-        console.log(patientDOB)
         const request: IPatientRequest = {
             firstname: patientName!!,
             lastname: patientSurname!!,
@@ -183,7 +182,6 @@ function PatientEdit(): ReactElement {
             prosthesisFoot: selectedFoot?.value!!,
             tagIds: [Number(selectedTag?.value!!)]
         }
-        console.log(request.dob)
         return request
     }
 

@@ -9,7 +9,6 @@ import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import LoadingModal from "../../../components/loading/loading"
 import ReactDatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
 import dayjs from "dayjs"
 import utc from 'dayjs/plugin/utc'
 import tz from 'dayjs/plugin/timezone'
