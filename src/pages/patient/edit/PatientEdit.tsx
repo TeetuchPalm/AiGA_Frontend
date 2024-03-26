@@ -8,8 +8,8 @@ import { useNavigate, useParams } from "react-router-dom"
 import swal from "sweetalert2"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
-import ReactDatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.min.css"
 
 
 
@@ -327,7 +327,7 @@ function PatientEdit(): ReactElement {
                             <div className="row mb-2">
                                 <div className="col-sm-12 col-md-8 col-lg-8 col-xxl-6">
                                     <div className="mb-3 date-picker"><label className="form-label"><strong>Date of Birth <span>*</span></strong></label>
-                                    <ReactDatePicker
+                                    <DatePicker
                                             className="form-control"
                                             selected={patientDOB}
                                             onChange={(date) => setPatientDOB(date || undefined)}
