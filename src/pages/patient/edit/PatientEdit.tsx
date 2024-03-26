@@ -9,6 +9,7 @@ import swal from "sweetalert2"
 import { ITagParams, ITagResponse } from "../../../interfaces/patient/tag/Tag"
 import { IPageResponse } from "../../../interfaces/paginate/Page"
 import ReactDatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
 
 
